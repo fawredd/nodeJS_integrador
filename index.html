@@ -5,26 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Funkoshop</title>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body> 
     <header> <!-- Inicio Header -->
-        <nav>
-            <picture>
+        <nav class="navbar container">
+            <picture class="navbar__logo">
                 <a href="./index.html">
                     <img src="./img/branding/logo_light_horizontal.svg" alt="Isologotipo de la Marca Funkoshop">
                 </a>
             </picture>
-            <ul>
-                <li>
-                    <a href="./pages/shop.html">SHOP</a>
+            <ul class="navbar__menu">
+                <li class="menu__item menu__item__submenu">
+                    <a href="./pages/shop.html">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
                 </li>
-                <li>
+                <li class="menu__item">
                     <a href="./pages/contact.html">CONTACTO</a>
                 </li>
-                <li>
+                <li class="menu__item">
                     <a href="./pages/login.html">LOGIN</a>
                 </li>
-                <li>
+                <li class="menu__item">
                     <a href="./pages/cart.html">
                         <img src="./img/icons/cart-icon.svg" alt="ícono de carrito">
                     </a>
@@ -33,12 +34,14 @@
         </nav>
     </header> <!--   Fin Header -->
     <main>
-        <section>
-            <article>
-                <h3>Nuevos Ingresos</h3>
-                <p>Descubrí el próximo Funko Pop de tu colección</p>
-                <a href="./pages/shop.html">SHOP</a>
-            </article>
+        <section class="banner">
+            <div class="banner__content container">
+                <article class="banner__article">
+                    <h3>Nuevos Ingresos</h3>
+                    <p>Descubrí el próximo Funko Pop de tu colección</p>
+                    <a class="article_boton_blanco" href="./pages/shop.html">SHOP</a>
+                </article>
+            </div>
         </section>
         <section>
             <article>
@@ -145,5 +148,6 @@
         </section>
         <p>All rights reserved 2023 - Funkoshop &copy;</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
 </html>

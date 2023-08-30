@@ -31,6 +31,7 @@
     /* espaciado */
     --espacio-128:12.8rem;
     --espacio-68:6.8rem;
+    --espacio-48:4.8rem;
     --espacio-36:3.6rem;
     --espacio-28:2.8rem;
     --espacio-24:2.4rem;
@@ -75,7 +76,21 @@ ul, ol {
 
 p {
     font-size: var(--fuente-size-18);
+    font-weight: lighter;
 }
+
+h1{
+    font-size: var(--fuente-size-46);
+}
+
+h2{
+    font-size: var(--fuente-size-30);
+}
+
+h3{
+    font-size: var(--fuente-size-24);
+}
+/* fin normalizo */
 
 .container {
     max-width: 1220px;
@@ -115,6 +130,20 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    position: relative;
+    top:0;
+    left:0;
+    font-family: var(--fuente-secundaria);    
+}
+
+.banner::before{
+    content:"";
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    filter: blur(0.3);
+    height:100%;
+    width:100%;
+    position:absolute;
 }
 
 .banner__content{
@@ -122,6 +151,7 @@ p {
     flex-direction: row;
     justify-content: space-between;
     width:100%;
+    z-index: 2;
 }
 
 .banner__article{
@@ -130,3 +160,55 @@ p {
     justify-content:center;
     align-items:flex-start;
 }
+
+.banner__article p{
+    padding-bottom: var(--espacio-48);
+}
+
+.banner__article a{
+    font-family: var(--fuente-principal);
+    color: var(--color-negro);
+    background-color: white;
+    border-radius: 50px;
+    padding:11px 78px;
+}
+
+/* fin banner */
+
+/* home articulos */
+.articulo{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.articulo:nth-of-type(even){
+    flex-direction: row-reverse;
+}
+
+.articulo__descripcion{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.articulo__descripcion h3{
+    font-family: var(--fuente-secundaria);
+    font-size: var(--fuente-size-46);
+}
+
+.articulo__descripcion hr{
+    border:var(--color-rojo) 1px solid;
+    width:100%;
+    margin:var(--espacio-16) 0;
+}
+
+.articulo__descripcion a{
+    font-family: var(--fuente-principal);
+    font-size: var(--fuente-size-24);
+    color: white;
+    background-color: var(--color-negro);
+    border-radius: 50px;
+    padding:11px 48px;
+}
+

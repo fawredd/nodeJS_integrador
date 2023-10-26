@@ -4,7 +4,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: var(--espacio-36) 0;
 }
 
 .navbar__logo{

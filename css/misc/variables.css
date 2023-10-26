@@ -1,0 +1,39 @@
+/* Varibles de referencia */
+:root{
+    /* colores */
+    --color-rojo: #FF3333;
+    --color-rojo-90: rgba(255, 51, 51,0.9);
+    --color-azul:#1D84B5;
+    --color-azul-90: rgba(29, 132, 181,0.9);
+    --color-girs-oscuro: rgb(48, 52, 63);
+    --color-gris-oscuro-90: rgba(48, 52, 63,0.9);
+    --color-negro: #1f1f1f;
+    --color-negro-90: rgba(31, 31, 31,0.9);
+    --color-rosa: rgb(255, 22, 84);
+    --color-rosa-90: rgba(255, 22, 84,0.9);
+    --fuente-color-blanco:#ffffff;
+    
+    /* fuentes */
+    --fuente-principal: 'Inter', sans-serif;
+    --fuente-secundaria: 'Raleway', sans-serif;
+    /* tamaño de fuentes */
+    --fuente-size-46: 4.6em;
+    --fuente-size-38: 3.8em;
+    --fuente-size-30: 3.0em;
+    --fuente-size-24: 2.4em;
+    --fuente-size-20: 2em;
+    --fuente-size-18: 1.8em;
+    --fuente-size-16: 1.6em;
+    --fuente-size-14: 1.4em;
+
+    /* espaciado */
+    --espacio-128:12.8rem;
+    --espacio-68:6.8rem;
+    --espacio-48:4.8rem;
+    --espacio-36:3.6rem;
+    --espacio-28:2.8rem;
+    --espacio-24:2.4rem;
+    --espacio-16:1.6rem;
+    --espacio-12:1.2rem;
+    --espacio-8:0.8rem;
+}

@@ -1,0 +1,17 @@
+/* Footer */
+footer {
+    display:flex;
+    flex-direction: column;
+}
+footer nav{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+footer p{
+    padding:var(--espacio-12) 0;
+    margin:0 auto;
+}
+
+/* fin Footer */

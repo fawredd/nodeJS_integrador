@@ -1,0 +1,119 @@
+/* Admin */
+.admin{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    padding: var(--espacio-16) 0;
+}
+
+.admin__busqueda{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: var(--fuente-size-30);
+}
+
+.admin__busqueda input{
+    display:block;
+    border-radius: 5px;
+    margin-left:var(--espacio-24);
+    height:30px;
+    box-sizing: content-box;
+}
+
+.admin__busqueda input::placeholder{
+    padding: 6px;
+}
+
+.admin__encabezado{
+    display:flex;
+    width:100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding:var(--espacio-16) 0;
+    font-family: var(--fuente-secundaria);
+}
+
+.admin__encabezado a{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: var(--fuente-size-14);
+    
+}
+.admin__encabezado a span{
+    margin-right: var(--espacio-8);
+}
+.admin__encabezado a iconify-icon{
+    color:white;
+    background-color: red;
+    border-radius: 2px;
+    font-size: var(--fuente-size-14);
+}
+
+.admin__listado{
+    width:100%;
+}
+.admin__listado table{
+ width:100%;
+ font-size: var(--fuente-size-16);
+}
+
+.admin__listado thead{
+    font-weight: bold;
+    text-align: left;
+}
+
+.listado__item td{
+    padding:var(--espacio-16) 0;
+}
+.listado__item iconify-icon{
+    padding: 0 var(--espacio-8);
+}
+
+.listado__item .item__edit{
+    color:var(--color-azul);
+}
+.listado__item .item__remove{
+    color:var(--color-rojo);
+}
+.listado__item td:nth-last-child(1),
+.listado__item td:nth-last-child(2) {
+    width: 1%;
+}
+.listado{
+    position:relative;
+}
+/* fin Admin */
+/* Aside */
+.aside{
+    /*    position:absolute;
+       top:0px;
+       left:0px; */
+       display:flex;
+       flex-direction: column;
+       gap:var(--espacio-12);
+   }
+   
+   .aside__buscar{
+       display:flex;
+       flex-direction: column;
+       row-gap: var(--espacio-8);
+   }
+   .aside__buscar *{
+       flex-grow: 1;
+       flex-shrink: 0;
+   }
+   .aside__buscar input,
+   .aside__buscar select{
+       border-radius: 5px;
+       border-color: black;
+       border-style: solid;
+       padding:2px 5px;
+   }
+   /* fin aside */

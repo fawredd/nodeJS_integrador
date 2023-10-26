@@ -103,11 +103,18 @@
 
 /* fin articulos home */
 /* Ultimos lanzamientos */
-.ultimosLanzamientos{
+.ultimosLanzamientos {
+    margin-bottom: var(--espacio-36);
+}
+.ultimosLanzamientos h1{
+    font-size: var(--fuente-size-46);
+    text-transform: uppercase;
+ }
+.ultimosLanzamientos__lista{
     display:flex;
     flex-direction: row;
     margin-top:var(--espacio-36);
-    gap:0 var(--espacio-12);
+    gap:0 var(--espacio-36);
     
  }
  
@@ -116,7 +123,23 @@
      flex-direction: column;
      position:relative;
  }
- 
+ .ul__descripcion{
+    display:flex;
+    flex-direction: column;
+    gap: var(--espacio-8);
+    padding-left: var(--espacio-12);
+ }
+ .ul__descripcion p{
+    font-size:var(--fuente-size-14);
+ }
+ .ul__descripcion p:nth-last-child(1){
+    color: #1D84B5;
+    font-size:var(--fuente-size-12);
+ }
+ .ul__descripcion h4{
+    font-size:var(--fuente-size-18);
+    text-transform: uppercase;
+ }
  .ul__articulos .articulos__sticker{
      position:absolute;
      top:0px;

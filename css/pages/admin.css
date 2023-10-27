@@ -90,30 +90,3 @@
     position:relative;
 }
 /* fin Admin */
-/* Aside */
-.aside{
-    /*    position:absolute;
-       top:0px;
-       left:0px; */
-       display:flex;
-       flex-direction: column;
-       gap:var(--espacio-12);
-   }
-   
-   .aside__buscar{
-       display:flex;
-       flex-direction: column;
-       row-gap: var(--espacio-8);
-   }
-   .aside__buscar *{
-       flex-grow: 1;
-       flex-shrink: 0;
-   }
-   .aside__buscar input,
-   .aside__buscar select{
-       border-radius: 5px;
-       border-color: black;
-       border-style: solid;
-       padding:2px 5px;
-   }
-   /* fin aside */

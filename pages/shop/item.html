@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item | Funkoshop</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body> 
+    <header> <!-- Inicio Header -->
+     </header> <!--   Fin Header -->
+    <main id="app">
+        <div class="container">
+            <item :datos="items[0]"></item>
+            <section class="ultimosLanzamientos"> <!-- Ultimos lanzamientos -->
+            <h1>Productos relacionados</h1>
+            <ul class="ultimosLanzamientos__lista">
+                <card :items="items"></card>
+            </ul>
+            </section>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script type="module" src="/js/vue.js"></script>
+</body>
+</html>

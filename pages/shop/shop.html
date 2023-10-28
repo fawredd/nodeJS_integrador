@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Funkoshop</title>
+    <title>Shop | Funkoshop</title>
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body> 
     <header> <!-- Inicio Header -->
     </header> <!--   Fin Header -->
     <main>
-        <div  id="app" class="container dosColumnas">
-        
+      <div  id="app" class="container dosColumnas">
         <aside class="aside"> <!-- aside -->
             <div class="aside__buscar">
                 <label for="item_o_categoria">BUSCAR</label>
@@ -65,27 +64,12 @@
                 </ul>
             </div>
         </aside>    
-                
         <section class="listado"> <!-- Listado de articulos -->
-            <ul class="ultimosLanzamientos__lista" v-for="y in [1,2,3]">
-                <li class="ul__item" v-for="item in items">
-                    <article>
-                        <a  class="ul__articulos" href="#">
-                           <picture>
-                                <img :src="item.image" :alt="item.alt">
-                           </picture>
-                           <div class="ul__descripcion">
-                                <p>{{item.brand}}</p>
-                                <h4>{{item.title}}</h4>
-                                <p>{{item.price}}</p>
-                                <p>{{item.payment}}</p>
-                           </div>
-                           <span class="articulos__sticker">{{item.sticker}}</span>
-                        </a>   
-                    </article>
-                </li>
+            <ul class="ultimosLanzamientos__lista">
+                <card :items="items"></card>
             </ul>
         </section>
+      </div>
     </main>
     <footer>
     </footer>

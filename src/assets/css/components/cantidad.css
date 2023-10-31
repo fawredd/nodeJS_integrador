@@ -1,0 +1,23 @@
+.comp__cantidad{
+    display:flex;
+    flex-direction: row;
+    column-gap: 5px;
+    flex-basis: 50%;
+}
+.comp__cantidad .masmenos{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.masmenos button{
+    background-color: grey;
+    color:white;
+    border-color: lightgray;
+    border-style: solid;
+}
+
+.comp__cantidad input{
+    border-color: lightgray;
+    border-style: solid;
+}

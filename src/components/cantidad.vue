@@ -1,0 +1,14 @@
+<script>
+export default {
+    props:['value']
+}
+</script>
+<template>
+    <div class="comp__cantidad">
+        <input id="cantidad__input" type="number" maxlength="4" value="0" step="1">
+        <div class="masmenos">
+            <button>+</button>
+            <button>-</button>
+        </div>
+    </div>
+</template>

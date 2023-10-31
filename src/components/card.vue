@@ -1,7 +1,9 @@
-
+<script>
 export default {
-  props:['items'],
-  template: `
+  props:['items']
+}
+</script>
+<template>
     <li class="ul__item" v-for="item in items">
         <article>
             <a  class="ul__articulos" href="#">
@@ -17,5 +19,5 @@ export default {
             <span class="articulos__sticker">{{item.sticker}}</span>
             </a>   
         </article>
-    </li>`
-}
+    </li>
+</template>

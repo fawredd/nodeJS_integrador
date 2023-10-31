@@ -1,6 +1,6 @@
 /* banner */
 .banner{
-    background-image: url("../../img/funkos-banner.webp");
+    background-image: url("./assets/./assets/img/funkos-banner.webp");
     background-size: cover;
     background-attachment: fixed;
     height:400px;

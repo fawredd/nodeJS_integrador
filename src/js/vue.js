@@ -1,6 +1,8 @@
 import { createApp, ref } from 'vue'
-import card from './card.js'
-import item from './item.js'
+import card from '@/components/card.vue'
+import item from '@/components/item.vue'
+import cantidad from '@/components/cantidad.vue'
+
 // Vuetify
 /* import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
@@ -42,16 +44,28 @@ const app = createApp({
                 "price": "$ 1799,99.-",
                 "payment": "3 CUOTAS SIN INTERÉS",
                 "sticker": "NUEVO"
+              },
+              {
+                "image": "/img/star-wars/baby-yoda-1.webp",
+                "alt": "Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.",
+                "title": "BABY YODA BLUEBALL",
+                "brand": "STAR WARS",
+                "price": "$ 1799,99.-",
+                "payment": "3 CUOTAS SIN INTERÉS",
+                "sticker": "NUEVO"
               }
             ]
         }
     },
     components: {
       card,
-      item
+      item,
+      cantidad
     },
 })
+
 /* app.use(vuetify) */
+
 app.mount('#app')
 app.config.errorHandler = (err) => {
     /* handle error */

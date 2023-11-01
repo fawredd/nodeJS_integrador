@@ -1,18 +1,6 @@
-import { createApp, ref } from 'vue'
+import { createApp } from 'vue'
 import card from '@/components/card.vue'
 import item from '@/components/item.vue'
-import cantidad from '@/components/cantidad.vue'
-
-// Vuetify
-/* import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
-
-const vuetify = createVuetify({
-  components,
-  directives,
-}) */
 
 const app = createApp({
     data() {
@@ -59,13 +47,9 @@ const app = createApp({
     },
     components: {
       card,
-      item,
-      cantidad
+      item
     },
 })
-
-/* app.use(vuetify) */
-
 app.mount('#app')
 app.config.errorHandler = (err) => {
     /* handle error */

@@ -34,3 +34,16 @@
     flex-direction: row;
     column-gap: var(--espacio-8);
 }
+
+.datosCompra{
+    display:flex;
+    flex-direction: row;
+    column-gap: var(--espacio-8);
+    justify-content: start;
+}
+.datosCompra .agregarAlCarrito{
+    background-color: var(--color-rojo);
+    color:white;
+    padding: 0px 5px;
+    border:none;
+}

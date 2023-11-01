@@ -1,5 +1,9 @@
 <script>
+import cantidad from '@/components/cantidad.vue'
 export default {
+  components:{
+        cantidad
+  },
   props:['datos']
 }
 </script>
@@ -15,6 +19,7 @@ export default {
                 <p class="desc__price">{{datos.price}}</p>
                 <div class="datosCompra">
                   <cantidad :value="0"></cantidad>
+                  <button class="agregarAlCarrito">Agregar al carrito</button>
                 </div>
                 <div class="metodosDePago">
                         <p>Ver metodos de pago</p>

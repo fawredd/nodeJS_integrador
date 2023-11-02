@@ -1,0 +1,42 @@
+.compras_encabezado{
+    margin-top:var(--espacio-128);
+    margin-bottom: var(--espacio-68);
+    border-bottom:solid red 2px;
+    font-family: var(--fuente-secundaria);
+    font-size: var(--fuente-size-46);
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.compras_tabla_filas{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    background-color: #fafaff;
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: var(--espacio-16) 0;
+    margin-bottom: var(--espacio-36);
+}
+
+.compras_tabla {
+    display:flex;
+    flex-direction: row;
+}
+
+.flex-item {
+    flex: 1;
+    font-size:var(--fuente-size-16);
+    text-align:center;
+  }
+
+  .flex-item:nth-child(1) {
+    flex-basis: 50%;
+  }
+
+  .flex-item:nth-child(2),
+  .flex-item:nth-child(3) {
+    flex-basis: 17%;
+  }
+
+  .flex-item:nth-child(4) {
+    flex-basis: 16%;
+  }

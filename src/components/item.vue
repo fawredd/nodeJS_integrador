@@ -27,6 +27,5 @@ export default {
                         <p>{{datos.payment}}</p>
                 </div>
         </div>
-        <span class="articulos__sticker">{{datos.sticker}}</span>
     </article>
 </template>

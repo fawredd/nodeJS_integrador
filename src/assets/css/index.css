@@ -24,6 +24,7 @@
 @import url('./components/slider.css');
 @import url('./components/newsletter.css');
 @import url('./components/cantidad.css');
+@import url('./components/carrito.css');
 
 /* PAGES */
 
@@ -35,3 +36,4 @@
 @import url('./pages/register.css');
 @import url('./pages/create.css');
 @import url('./pages/edit.css');
+@import url('./pages/compras.css');

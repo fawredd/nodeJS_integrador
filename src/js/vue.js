@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import card from '@/components/card.vue'
 import item from '@/components/item.vue'
-import item_compra from '@/components/item_compra.vue'
+import itemcompra from '@/components/itemCompra.vue'
 
 const app = createApp({
     data() {
@@ -49,7 +49,7 @@ const app = createApp({
     components: {
       card,
       item,
-      item_compra,
+      itemcompra,
     },
 })
 app.mount('#app')

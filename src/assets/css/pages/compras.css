@@ -20,6 +20,11 @@
 .compras_tabla {
     display:flex;
     flex-direction: row;
+    align-items: center;
+}
+
+.flex-item i{
+    color: #ff0000;
 }
 
 .flex-item {

@@ -4,7 +4,7 @@
     border-bottom:solid red 2px;
     font-family: var(--fuente-secundaria);
     font-size: var(--fuente-size-46);
-    display: inline-block;
+    display:inline-block;
     text-transform: uppercase;
 }
 
@@ -29,11 +29,11 @@
 
 .flex-item {
     flex: 1;
-    font-size:var(--fuente-size-16);
     text-align:center;
   }
 
   .flex-item:nth-child(1) {
+
     flex-basis: 50%;
   }
 
@@ -44,4 +44,114 @@
 
   .flex-item:nth-child(4) {
     flex-basis: 16%;
+    align-self: center;
   }
+
+.compra_item{
+    display:flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items:center;
+    column-gap: var(--espacio-12);
+    margin-left:var(--espacio-16);
+}  
+.compra_item img{
+    width:118px;
+}
+
+.compras_item__descripcion{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    text-align: left;
+}
+
+.comp__cantidad{
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.fnt-700{
+    font-weight: 700;
+}
+
+.encabezado{
+    font-size:var(--fuente-size-16);
+}
+
+.compras_item__descripcion .desc__title{
+    font-size: var(--fuente-size-24)
+}
+
+.compras_item__descripcion .desc__brand,
+.compras_item__descripcion .desc__price{
+    font-size: var(--fuente-size-14)
+}
+
+.compras_tabla .precio_total{
+    font-size: var(--fuente-size-20)
+}
+
+.compras__resumen{
+    display:flex;
+    flex-direction: column;
+    row-gap: var(--espacio-36);
+    flex-wrap: nowrap;
+    align-items: end;
+    width:50%;
+    margin-left: auto;
+    margin-bottom: var(--espacio-128);
+}
+
+.compras__resumen .resumen__titulo{
+    text-transform: uppercase;
+    font-family: var(--fuente-secundaria);
+    font-weight: 700;
+    font-size: var(--fuente-size-46);
+    border-bottom: solid red 1px;
+    display:inline-block;
+}
+
+.compras__resumen .resumen__valores{
+    display:flex;
+    flex-direction: column;
+    row-gap: var(--espacio-12);
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    width:100%;
+    padding:var(--espacio-24);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    background-color: #fafaff;
+    border-radius: 10px;
+}
+.compras__resumen .valores__fila{
+    text-transform: uppercase;
+    font-size: var(--fuente-size-16);
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.compras__resumen .valores__fila p:nth-child(1){
+    text-align:left;
+    flex-basis: 50%;
+}
+.compras__resumen .valores__fila p:nth-child(2){
+    text-align:right;
+    flex-basis: 50%;
+}
+
+.compras__resumen .resumen__valores hr{
+    border: solid red 1px;
+}
+
+.compras__resumen button{
+    background-color: red;
+    font-size:var(--fuente-size-30);
+    font-weight: 700;
+    padding:var(--espacio-12) 0;
+    color:white;
+    width:100%;
+}

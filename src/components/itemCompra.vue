@@ -1,17 +1,34 @@
 <script>
 import cantidad from '@/components/cantidad.vue'
+import { ref } from 'vue';
 export default {
   components:{
         cantidad
   },
-  props:['datos']
+  props:['datos'],
+  data() {
+    return {
+      precio_total: ref(0)
+    }
+  },
 }
 </script>
 <template>
   <div class="compras_tabla compras_tabla_filas">
-          <div class="flex-item">DETALLE PRODUCTO</div>
-          <div class="flex-item"><cantidad></cantidad></div>
-          <div class="flex-item">TOTAL</div>
-          <div class="flex-item"><i class="fa-regular fa-circle-xmark"></i></div>
+    <div class="flex-item compra_item">
+      <picture>
+          <img :src="datos.image" :alt="datos.alt">
+      </picture>
+      <div class="compras_item__descripcion">
+            <p class="desc__title fnt-700">{{datos.title}}</p>
+            <p class="desc__brand">{{datos.brand}}</p>
+          <p class="desc__price">Precio:&nbsp;{{datos.price}}</p>
+      </div>
+    </div>
+    <div class="flex-item"><cantidad></cantidad></div>
+    <div class="flex-item precio_total">{{'$ '+precio_total.toFixed(2)}}</div>
+    <div class="flex-item">
+      <iconify-icon icon="zondicons:close-outline" style="color: red;" width="28"></iconify-icon>
+    </div>
   </div>
 </template>

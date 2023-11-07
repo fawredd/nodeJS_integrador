@@ -79,6 +79,13 @@ const app = createApp({
         this.cart.totalCart = importe + this.cart.envio
         console.log('Cart:', JSON.stringify(this.cart))
       }
+    },
+    watch:{
+      'cart.cartItems': {
+        handler(nuevoValor) {
+          document.querySelector("#itemsEnCarrito").innerHTML = nuevoValor;
+        }
+      }
     }
 })
 

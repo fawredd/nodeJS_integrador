@@ -17,10 +17,21 @@ export default {
       this.cant = valor
       this.importe = valor * parseFloat(this.datos.price)
       this.$emit('input', this.cant)
+    },
+    emiteElimina() {
+      this.cant = 0
+      this.importe = 0
+      this.$emit('input', 0)
+      this.computedCant()
     }
   },
   mounted() {
     this.importe = this.cant * parseFloat(this.datos.price)
+  },
+  computed: {
+    computedCant() {
+      return this.cant
+    }
   }
 
 
@@ -38,10 +49,23 @@ export default {
           <p class="desc__price">Precio:&nbsp;{{datos.price}}</p>
       </div>
     </div>
-    <div class="flex-item"><cantidad :value="cant" @input="emiteValor">></cantidad></div>
+    <div class="flex-item"><cantidad :value="computedCant" @input="emiteValor">></cantidad></div>
     <div class="flex-item precio_total">{{'$ '+importe.toFixed(2)}}</div>
     <div class="flex-item">
-      <iconify-icon icon="zondicons:close-outline" style="color: red;" width="28"></iconify-icon>
+      <button @click="emiteElimina">
+          <iconify-icon icon="zondicons:close-outline" style="color: red;" width="28"></iconify-icon>
+      </button>
     </div>
   </div>
 </template>
+
+<style>
+  button{
+    border:none;
+    background-color: transparent;
+  }
+  button:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+  }
+</style>

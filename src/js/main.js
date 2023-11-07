@@ -44,7 +44,7 @@ pageHeader.innerHTML =
     <li class="menu__item">
         <a class="carrito" href="/pages/cart.html">
             <img src="/img/icons/cart-icon.svg" alt="ícono de carrito">
-            <span class="cantidadCarrito">0</span>
+            <span class="cantidadCarrito" id="itemsEnCarrito">0</span>
         </a>
     </li>
 </ul>

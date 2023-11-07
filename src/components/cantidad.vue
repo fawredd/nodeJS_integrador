@@ -28,6 +28,11 @@ export default {
             console.log('cantidad:' + this.count)
         },
     },
+    watch: {
+        value(nuevoValor) {
+        this.count = nuevoValor;
+        }
+    }
 }
 </script>
 <template>

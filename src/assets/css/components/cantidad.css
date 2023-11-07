@@ -12,8 +12,6 @@
 .masmenos button{
     background-color: grey;
     color:white;
-    border-color: lightgray;
-    border-style: solid;
     padding-inline: 5px 5px;
     text-align: center;
 }

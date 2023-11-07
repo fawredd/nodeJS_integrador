@@ -22,8 +22,8 @@
                 <div class="flex-item">TOTAL</div>
                 <div class="flex-item">&nbsp;</div>
             </div>
-            <itemcompra :datos="items[3]"></itemcompra>
-            <itemcompra :datos="items[1]"></itemcompra>
+            <itemcompra :datos="items[3]" :value="100" @input="console.log('padre:' + $event)"></itemcompra>
+            <itemcompra :datos="items[1]" :value="0"></itemcompra>
             <section class="contenedor_resumen">
             <div class="compras__resumen">
                 <span>

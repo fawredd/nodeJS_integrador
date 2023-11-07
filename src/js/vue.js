@@ -52,6 +52,11 @@ const app = createApp({
       itemcompra,
     },
 })
+
+app.config.compilerOptions = {
+  isCustomElement: (tag) => tag === 'iconify-icon'
+}
+
 app.mount('#app')
 app.config.errorHandler = (err) => {
     /* handle error */

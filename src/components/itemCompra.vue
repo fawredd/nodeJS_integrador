@@ -1,16 +1,25 @@
 <script>
 import cantidad from '@/components/cantidad.vue'
-import { ref } from 'vue';
+
 export default {
   components:{
         cantidad
   },
-  props:['datos'],
+  props: ['datos','value'],
   data() {
     return {
-      precio_total: ref(0)
+      precio_total: 0,
+      cant: this.value
     }
   },
+  methods:{
+    emiteValor(valor) {
+      this.cant = valor
+      this.$emit('input', this.cant)
+      console.log('itemcompra:'+this.cant)
+    }
+  }
+
 }
 </script>
 <template>
@@ -25,7 +34,7 @@ export default {
           <p class="desc__price">Precio:&nbsp;{{datos.price}}</p>
       </div>
     </div>
-    <div class="flex-item"><cantidad></cantidad></div>
+    <div class="flex-item"><cantidad :value="cant" @input="emiteValor">></cantidad></div>
     <div class="flex-item precio_total">{{'$ '+precio_total.toFixed(2)}}</div>
     <div class="flex-item">
       <iconify-icon icon="zondicons:close-outline" style="color: red;" width="28"></iconify-icon>

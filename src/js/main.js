@@ -42,7 +42,7 @@ pageHeader.innerHTML =
         <a href="/pages/login.html">LOGIN</a>
     </li>
     <li class="menu__item">
-        <a class="carrito" href="/pages/cart.html">
+        <a class="carrito" href="/pages/shop/cart.html">
             <img src="/img/icons/cart-icon.svg" alt="ícono de carrito">
             <span class="cantidadCarrito" id="itemsEnCarrito">0</span>
         </a>

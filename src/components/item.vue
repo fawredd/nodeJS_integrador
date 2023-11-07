@@ -4,7 +4,12 @@ export default {
   components:{
         cantidad
   },
-  props:['datos']
+  props:['datos'],
+  methods: {
+        agregarACarrito(valor){
+                this.$emit('click', valor )        
+        }
+  }
 }
 </script>
 <template>
@@ -18,8 +23,8 @@ export default {
                 <p class="desc__alt">{{datos.alt}}</p>
                 <p class="desc__price">{{datos.price}}</p>
                 <div class="datosCompra">
-                  <cantidad :value="0"></cantidad>
-                  <button class="agregarAlCarrito">Agregar al carrito</button>
+                  <cantidad :value="0" id="cantidadInput" @input="agregarACarrito"></cantidad>
+                  <button class="agregarAlCarrito" @click="agregarACarrito">Agregar al carrito</button>
                 </div>
                 <div class="metodosDePago">
                         <p>Ver metodos de pago</p>

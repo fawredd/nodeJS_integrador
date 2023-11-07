@@ -14,6 +14,9 @@ dependencies:
   vue-router:
     specifier: ^4.2.5
     version: 4.2.5(vue@3.3.7)
+  vue3-cookies:
+    specifier: ^1.0.6
+    version: 1.0.6
 
 devDependencies:
   '@rushstack/eslint-patch':
@@ -1566,6 +1569,14 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.5.1
       vue: 3.3.7
+    dev: false
+
+  /vue3-cookies@1.0.6:
+    resolution: {integrity: sha512-a1UvVD0qIgxyOqjlSOwnLnqAnz8ASltugEv8yX+96i/WGZAN9fEDci7xO4HIWZE1uToUnRq9JnFhvfDCSo45OA==}
+    dependencies:
+      vue: 3.3.7
+    transitivePeerDependencies:
+      - typescript
     dev: false
 
   /vue@3.3.7:

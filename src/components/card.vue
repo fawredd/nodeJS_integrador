@@ -6,7 +6,7 @@ export default {
 <template>
     <li class="ul__item" v-for="item in items">
         <article>
-            <a  class="ul__articulos" href="#">
+            <a  class="ul__articulos" :href="`/public/pages/shop/item.html?item=${item.indice}`" >
             <picture>
                     <img :src="item.image" :alt="item.alt">
             </picture>

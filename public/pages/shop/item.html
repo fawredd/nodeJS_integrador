@@ -12,7 +12,7 @@
      </header> <!--   Fin Header -->
     <main id="app">
         <div class="container items_page">
-            <item :datos="items[3]"></item>
+            <item :datos="items[Number(params['item'])]" @click="valor => updateCart(Number(params['item']),valor)"></item>
             <section class="ultimosLanzamientos"> <!-- Ultimos lanzamientos -->
             <h1>Productos relacionados</h1>
             <ul class="ultimosLanzamientos__lista">

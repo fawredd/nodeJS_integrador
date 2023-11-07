@@ -8,17 +8,21 @@ export default {
   props: ['datos','value'],
   data() {
     return {
-      precio_total: 0,
+      importe: 0,
       cant: this.value
     }
   },
   methods:{
     emiteValor(valor) {
       this.cant = valor
+      this.importe = valor * parseFloat(this.datos.price)
       this.$emit('input', this.cant)
-      console.log('itemcompra:'+this.cant)
     }
+  },
+  mounted() {
+    this.importe = this.cant * parseFloat(this.datos.price)
   }
+
 
 }
 </script>
@@ -35,7 +39,7 @@ export default {
       </div>
     </div>
     <div class="flex-item"><cantidad :value="cant" @input="emiteValor">></cantidad></div>
-    <div class="flex-item precio_total">{{'$ '+precio_total.toFixed(2)}}</div>
+    <div class="flex-item precio_total">{{'$ '+importe.toFixed(2)}}</div>
     <div class="flex-item">
       <iconify-icon icon="zondicons:close-outline" style="color: red;" width="28"></iconify-icon>
     </div>

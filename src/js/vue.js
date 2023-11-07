@@ -12,7 +12,7 @@ const app = createApp({
                 "alt": "Figura coleccionable Funko de un Stormtrooper",
                 "title": "STORMTROOPER LIGHTSABER",
                 "brand": "STAR WARS",
-                "price": "$ 1799,99.-",
+                "price": "1799.99",
                 "payment": "3 CUOTAS SIN INTERÉS",
                 "sticker": "NUEVO"
               },
@@ -21,7 +21,7 @@ const app = createApp({
                 "alt": "Figura coleccionable Funko de Pidgeotto",
                 "title": "PIDGEOTTO",
                 "brand": "POKEMON",
-                "price": "$ 1799,99.-",
+                "price": "1799.99",
                 "payment": "3 CUOTAS SIN INTERÉS",
                 "sticker": "NUEVO"
               },
@@ -30,7 +30,7 @@ const app = createApp({
                 "alt": "Figura coleccionable Funko de Luna Lovegood",
                 "title": "LUNA LOVEGOOD LION MASK",
                 "brand": "HARRY POTTER",
-                "price": "$ 1799,99.-",
+                "price": "1799.99",
                 "payment": "3 CUOTAS SIN INTERÉS",
                 "sticker": "NUEVO"
               },
@@ -39,11 +39,18 @@ const app = createApp({
                 "alt": "Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.",
                 "title": "BABY YODA BLUEBALL",
                 "brand": "STAR WARS",
-                "price": "$ 1799,99.-",
+                "price": "1799.99",
                 "payment": "3 CUOTAS SIN INTERÉS",
                 "sticker": "NUEVO"
               }
-            ]
+            ],
+            cart: {
+              items:[{indice:3,cantidad:2,importe:1800},{indice:0,cantidad:1,importe:1800}],
+              cartItems:0,
+              importe:0,
+              envio:0,
+              totalCart:0
+            }
         }
     },
     components: {
@@ -51,6 +58,28 @@ const app = createApp({
       item,
       itemcompra,
     },
+    methods:{
+      updateCart(itemIndex,cantidad){
+        const elemento = this.cart.items.find(elemento => elemento.indice === itemIndex)
+        if (elemento) {
+          elemento.cantidad = cantidad
+          elemento.importe = cantidad * parseFloat(this.items[itemIndex].price)
+        } else {
+          const nuevoElemento = { indice: itemIndex, cantidad: cantidad, importe: parseFloat(this.items[itemIndex].price)  };
+          this.cart.items.push(nuevoElemento);
+        }
+        let suma = 0
+        let importe = 0
+        this.cart.items.forEach(item => {
+          suma += item.cantidad
+          importe += item.importe
+        })
+        this.cart.cartItems = suma
+        this.cart.importe = importe
+        this.cart.totalCart = importe + this.cart.envio
+        console.log('Cart:', JSON.stringify(this.cart))
+      }
+    }
 })
 
 app.config.compilerOptions = {

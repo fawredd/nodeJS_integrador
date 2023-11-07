@@ -22,8 +22,7 @@
                 <div class="flex-item">TOTAL</div>
                 <div class="flex-item">&nbsp;</div>
             </div>
-            <itemcompra :datos="items[3]" :value="100" @input="console.log('padre:' + $event)"></itemcompra>
-            <itemcompra :datos="items[1]" :value="0"></itemcompra>
+            <itemcompra v-for="(item,index) in cart.items" :datos="items[item.indice]" :value="item.cantidad" @input="valor => updateCart(item.indice,valor)"></itemcompra>
             <section class="contenedor_resumen">
             <div class="compras__resumen">
                 <span>
@@ -32,20 +31,20 @@
                 <div class="resumen__valores">
                     <div class="valores__fila">
                         <p>CANTIDAD DE ELEMENTOS</p>
-                        <p>3</p>
+                        <p>{{ this.cart.cartItems }}</p>
                     </div>
                     <div class="valores__fila">
                         <p>SUBTOTAL</p>
-                        <p>$ 5000,00</p>
+                        <p>{{this.cart.importe}}</p>
                     </div>
                     <div class="valores__fila">
                         <p>ENVIO</p>
-                        <p>$ 0,00</p>
+                        <p>{{ this.cart.envio }}</p>
                     </div>
                     <hr>
                     <div class="valores__fila">
                         <p>TOTAL</p>
-                        <p>$ 5000,00</p>
+                        <p>{{ this.cart.totalCart }}</p>
                     </div>
                 </div>
                 <button>IR A PAGAR</button>

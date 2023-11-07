@@ -45,7 +45,7 @@ const app = createApp({
               }
             ],
             cart: {
-              items:[{indice:3,cantidad:2,importe:1800},{indice:0,cantidad:1,importe:1800}],
+              items:[],
               cartItems:0,
               importe:0,
               envio:0,

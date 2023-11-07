@@ -22,7 +22,11 @@
                 <div class="flex-item">TOTAL</div>
                 <div class="flex-item">&nbsp;</div>
             </div>
+            <div v-if="cart.items.length === 0" class="compras_tabla_filas compras_tabla fnt-700 encabezado">
+                <div style="margin:0 auto;">EL CARRITO ESTA VACIO</div>
+            </div>
             <itemcompra v-for="(item,index) in cart.items" :datos="items[item.indice]" :value="item.cantidad" @input="valor => updateCart(item.indice,valor)"></itemcompra>
+            
             <section class="contenedor_resumen">
             <div class="compras__resumen">
                 <span>

@@ -31,6 +31,7 @@
     justify-content: space-between;
     width:100%;
     z-index: 2;
+    padding: 0 var(--espacio-24);
 }
 
 .banner__article{
@@ -66,6 +67,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 0 var(--espacio-24);
 }
 .articulo:nth-of-type(even){
     flex-direction: row-reverse;
@@ -105,6 +107,8 @@
 /* Ultimos lanzamientos */
 .ultimosLanzamientos {
     margin-bottom: var(--espacio-36);
+    max-width:100%;
+    padding:0 var(--espacio-24);
 }
 .ultimosLanzamientos h1{
     font-size: var(--fuente-size-46);
@@ -114,6 +118,7 @@
     display:flex;
     flex-direction: row;
     gap:0 var(--espacio-36);
+    flex-wrap: wrap;
  }
  
  

@@ -113,12 +113,14 @@
 .ultimosLanzamientos h1{
     font-size: var(--fuente-size-46);
     text-transform: uppercase;
+    margin-bottom: var(--espacio-16);
  }
 .ultimosLanzamientos__lista{
     display:flex;
     flex-direction: row;
     gap:0 var(--espacio-36);
     flex-wrap: wrap;
+    justify-content: space-around;
  }
  
  

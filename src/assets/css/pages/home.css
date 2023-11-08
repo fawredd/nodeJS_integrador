@@ -119,7 +119,7 @@
     display:flex;
     flex-direction: row;
     gap:0 var(--espacio-36);
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-around;
  }
  

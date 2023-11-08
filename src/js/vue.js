@@ -115,8 +115,8 @@ const app = createApp({
       }
     },
     mounted() {
-      if($cookies.isKey('cart')){
-        this.cart = $cookies.get('cart')
+      if(this.$cookies.isKey('cart')){
+        this.cart = this.$cookies.get('cart')
       }
     }
 })
@@ -124,6 +124,7 @@ const app = createApp({
 app.config.compilerOptions = {
   isCustomElement: (tag) => tag === 'iconify-icon'
 }
+
 app.use(VueCookies)
 
 app.mount('#app')

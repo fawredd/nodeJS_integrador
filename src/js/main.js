@@ -4,7 +4,7 @@ pageFooter.innerHTML = `
 <nav>
     <ul>
         <li>
-            <a href="/pages/shop.html">SHOP</a>
+            <a href="/pages/shop/shop.html">SHOP</a>
         </li>
         <li>
             <a href="/pages/register.html">REGISTRARSE</a>
@@ -33,7 +33,7 @@ pageHeader.innerHTML =
 </picture>
 <ul class="navbar__menu">
     <li class="menu__item menu__item__submenu">
-        <a href="/pages/shop.html">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
+        <a href="/pages/shop/shop.html">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
     </li>
     <li class="menu__item">
         <a href="/pages/contact.html">CONTACTO</a>

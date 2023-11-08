@@ -3,6 +3,7 @@ import card from '@/components/card.vue'
 import item from '@/components/item.vue'
 import itemcompra from '@/components/itemCompra.vue'
 import VueCookies from 'vue3-cookies';
+import { Icon } from '@iconify/vue';
 
   /* PROVISORIO CONSULTO EL QUERYSTRING DESDE JAVASCRIPT */
   const queryString = window.location.search;
@@ -79,6 +80,7 @@ const app = createApp({
       card,
       item,
       itemcompra,
+      Icon,
     },
     methods:{
       updateCart(itemIndex,cantidad){
@@ -110,7 +112,8 @@ const app = createApp({
     watch:{
       'cart.cartItems': {
         handler(nuevoValor) {
-          document.querySelector("#itemsEnCarrito").innerHTML = nuevoValor;
+          let carrito = document.querySelector("#itemsEnCarrito")
+          if (carrito) { carrito.innerHTML = nuevoValor }
         }
       }
     },

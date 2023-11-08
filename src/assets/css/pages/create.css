@@ -1,14 +1,14 @@
 #create {
-    margin: var(--spacing-68) auto;
+    margin: var(--espacio-68) auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    gap: var(--spacing-36);
+    gap: var(--espacio-36);
 }
 
 .create__title {
-    font-size: var(--font-jumbo);
+    font-size: var(--font-size-46);
 }
 
 .create__form {
@@ -17,6 +17,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    gap: var(--spacing-48);
+    gap: var(--espacio-48);
 }
 

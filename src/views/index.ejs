@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Funkoshop</title>
-    <link rel="stylesheet" href="/src/assets/css/index.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body> 
-    <header> <!-- Inicio Header -->
-    </header> <!--   Fin Header -->
+    <%- include('./partials/header'); %>
     <main id="app">
         <section class="banner">
             <div class="banner__content container">
@@ -64,11 +63,7 @@
             </section>
         </div>
     </main>
-    <footer>
-
-    </footer>
-    <script type="module" src="/src/js/vue.js"></script>
-    <script src="/src/js/main.js"></script>
-
+    <%- include('./partials/footer'); %>
+    <script type="module" src="./js/vue.js"></script>
 </body>
 </html>

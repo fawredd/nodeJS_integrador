@@ -1,0 +1,14 @@
+.carrito{
+    position:relative;
+}
+.cantidadCarrito{
+    display: inline-block;
+    position:absolute;
+    background-color: red;
+    color:white;
+    padding: 1px 5px;
+    border-radius: 6px;
+    font-size: 0.6em;
+    z-index:2;
+    right:0px;
+}

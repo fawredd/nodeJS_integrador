@@ -1,0 +1,26 @@
+.container {
+    max-width: min(1200px,100%);
+    margin: 0 auto;
+}
+
+.grid-fixed {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.main{
+    position: relative;
+    background-color: transparent;
+}
+
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: 99;
+    background: #00000017;
+    width:100%;
+    height:100vh;
+    pointer-events: none;
+}

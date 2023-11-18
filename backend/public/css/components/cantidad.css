@@ -1,0 +1,30 @@
+.comp__cantidad{
+    display:flex;
+    flex-direction: row;
+    column-gap: 5px;
+}
+.comp__cantidad .masmenos{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.masmenos button{
+    background-color: grey;
+    color:white;
+    padding-inline: 5px 5px;
+    text-align: center;
+}
+
+.comp__cantidad input{
+    border-color: lightgray;
+    border-style: solid;
+    max-width: 10ch;
+    padding-inline: 1px;
+    text-align: center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance:none;
+  margin: 0;
+}

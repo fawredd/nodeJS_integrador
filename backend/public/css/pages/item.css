@@ -1,0 +1,49 @@
+/* ITEM PAGE */
+.items_page{
+    display:flex;
+    flex-direction: column;
+}
+.item{
+    display:flex;
+    flex-direction: row;
+    flex-basis: 50%;
+}
+.item__descripcion{
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--espacio-8);
+    justify-content: center;
+    align-items: left;
+}
+
+.item .desc__brand{
+    font-size: var(--fuente-size-16);
+}
+.item .desc__title{
+    font-size: var(--fuente-size-46);
+    font-weight: 700;
+}
+.item .desc__alt{
+    font-size: var(--fuente-size-24);
+}
+.item .desc__price{
+    font-size: var(--fuente-size-38);
+}
+.item .metodosDePago{
+    display: flex;
+    flex-direction: row;
+    column-gap: var(--espacio-8);
+}
+
+.datosCompra{
+    display:flex;
+    flex-direction: row;
+    column-gap: var(--espacio-8);
+    justify-content: start;
+}
+.datosCompra .agregarAlCarrito{
+    background-color: var(--color-rojo);
+    color:white;
+    padding: 0px 5px;
+    border:none;
+}

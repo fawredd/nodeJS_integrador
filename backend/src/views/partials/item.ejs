@@ -1,19 +1,22 @@
-<li>
-  <span class="<%= tarea.completed ? 'done' : '' %>"><%= tarea.title %></span>
-
-  <form action="/<%= tarea.id %>?_method=PUT" method="post">
-    <button type="submit">
-      <i class="bx bx-check"></i>
-    </button>
-  </form>
-
-  <form
-    action="/<%= tarea.id %>?_method=DELETE"
-    class="form-delete"
-    method="post"
-  >
-    <button type="submit">
-      <i class="bx bx-trash"></i>
-    </button>
-  </form>
-</li>
+<% 
+for (let i = 0; i <= (cantidad -1); i++ ){
+%>
+<li class="ul__item">
+        <article>
+            <a  class="ul__articulos" :href="`/public/pages/shop/item.html?item=${items[i].indice}`" >
+            <picture>
+                    <img src="<%= items[i].image %>" alt="<%= items[i].alt %>">
+            </picture>
+            <div class="ul__descripcion">
+                    <p><%= items[i].brand%></p>
+                    <h4><%= items[i].title%></h4>
+                    <p><%= items[i].price%></p>
+                    <p><%= items[i].payment%></p>
+            </div>
+            <span class="articulos__sticker"><%= items[i].sticker%></span>
+            </a>   
+        </article>
+    </li>
+<%
+}
+%>

@@ -1,0 +1,23 @@
+/* header */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar__logo{
+    max-width: 372px;
+}
+
+.navbar__menu{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--espacio-36);
+    align-items: center;
+}
+.menu__item{
+    font-size: var(--fuente-size-18);
+}
+/* fin header */

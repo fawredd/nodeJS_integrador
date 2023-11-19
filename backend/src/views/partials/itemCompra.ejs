@@ -1,0 +1,21 @@
+<div class="compras_tabla compras_tabla_filas">
+  <div class="flex-item compra_item">
+    <picture>
+        <img src="<%= item.image %>" alt="<%= item.alt %>">
+    </picture>
+    <div class="compras_item__descripcion">
+          <p class="desc__title fnt-700"><%= item.title %></p>
+          <p class="desc__brand"><%= item.brand %></p>
+        <p class="desc__price">Precio:&nbsp;<%= item.price %></p>
+    </div>
+  </div>
+  <div class="flex-item">
+    <%- include('../../partials/cantidad',{ id,items } ) %>
+  </div>
+  <div class="flex-item precio_total"><%= '$ '+importe.toFixed(2) %></div>
+  <div class="flex-item">
+    <button onclick="emiteElimina">
+        <iconify-icon icon="zondicons:close-outline" style="color: red;" width="28"></iconify-icon>
+    </button>
+  </div>
+</div>

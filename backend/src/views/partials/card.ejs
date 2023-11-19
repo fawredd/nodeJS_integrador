@@ -3,7 +3,7 @@ for (let i = 0; i <= (cantidad -1); i++ ){
 %>
 <li class="ul__item">
         <article>
-            <a  class="ul__articulos" :href="`/public/pages/shop/item.html?item=${items[i].indice}`" >
+            <a  class="ul__articulos" href="/item/<%= items[i].id %>" >
             <picture>
                     <img src="<%= items[i].image %>" alt="<%= items[i].alt %>">
             </picture>

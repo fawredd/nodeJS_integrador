@@ -11,7 +11,9 @@
     flex-direction: column;
     row-gap: var(--espacio-12);
     flex-grow: 1;
+    flex-basis: 0;
     padding: 0 var(--espacio-12);
+    max-width:15%;
  }
  .aside > div{
     display:flex;
@@ -51,7 +53,7 @@
    .listado{
     display:flex;
     flex-direction: row;
-    flex-basis:min-content;
     flex-wrap: wrap;
+    justify-content: left;
    }
  

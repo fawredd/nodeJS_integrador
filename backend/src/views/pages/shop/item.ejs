@@ -1,0 +1,32 @@
+<main id="app">
+    <div class="container items_page">
+        
+        <article class="item">
+            <picture>
+                    <img src="<%= items[id].image %>" alt="<%= items[id].alt %>">
+            </picture>
+            <div class="item__descripcion">
+                    <p class="desc__brand"><%= items[id].brand %></p>
+                    <h4 class="desc__title"><%= items[id].title %></h4>
+                    <p class="desc__alt"><%= items[id].alt %></p>
+                    <p class="desc__price"><%= items[id].price %></p>
+                    <div class="datosCompra">
+                      <%- include('../../partials/cantidad',{ items } ) %>
+                      <button class="agregarAlCarrito" onclick="agregarACarrito(<%=id%>)">Agregar al carrito</button>
+                    </div>
+                    <div class="metodosDePago">
+                            <p>Ver metodos de pago</p>
+                            <span>-</span>
+                            <p><%= items[id].payment %></p>
+                    </div>
+            </div>
+        </article>
+        
+        <section class="ultimosLanzamientos"> <!-- Ultimos lanzamientos -->
+            <h1>Productos relacionados</h1>
+            <ul class="ultimosLanzamientos__lista">
+                <%- include('../../partials/card',{ cantidad: 3 } ) %>
+            </ul>
+        </section>
+    </div>
+</main>

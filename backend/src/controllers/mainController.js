@@ -41,22 +41,47 @@ let items = [
   }
 ]
 
+let cart = {
+  items:[],
+  cartItems:0,
+  importe:0,
+  envio:0,
+  totalCart:0
+}
+
 const index = (req, res) => {
   console.log('Cargando ruta index method GET');
   res.render("index", { items });
   // res.render("index", { tareas, layout: "layouts/admin" });
 };
 
-const store = (req, res) => {
-  const tarea = {
-    id: Date.now(),
-    title: req.body.title,
-    completed: false,
-  };
+const shop = (req, res) => {
+  console.log('Cargando ruta Shop method GET');
+  res.render("pages/shop/shop", { brand:req.query.brand , items });
+  // res.render("index", { tareas, layout: "layouts/admin" });
+};
 
-  tareas.push(tarea);
+const item = (req, res) => {
+  console.log('Cargando ruta Item method GET');
+  res.render("pages/shop/item", { id:req.params.id , items});
+  // res.render("index", { tareas, layout: "layouts/admin" });
+};
 
-  res.redirect("/");
+const carrito = (req, res) => {
+  console.log('Cargando ruta Cart method GET');
+  res.render("pages/shop/cart", { cart , items });
+  // res.render("index", { tareas, layout: "layouts/admin" });
+};
+
+const modificaCarrito = (req, res) => {
+  let accion = req.params.action
+  if (accion="sumar"){
+
+  }
+ 
+  cart.items.push(tarea);
+
+  res.redirect("/cart");
 };
 
 const update = (req, res) => {
@@ -77,7 +102,9 @@ const destroy = (req, res) => {
 
 module.exports = {
   index,
-  store,
+  shop,
+  item,
+  carrito,
   update,
   destroy,
 };

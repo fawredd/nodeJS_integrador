@@ -120,7 +120,7 @@
     flex-direction: row;
     gap:0 var(--espacio-36);
     /* flex-wrap: wrap; */
-    justify-content: space-around;
+    flex-wrap: wrap;
  }
  
  

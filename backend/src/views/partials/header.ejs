@@ -1,25 +1,25 @@
 <header>
 <nav class="navbar container">
     <picture class="navbar__logo">
-        <a href="/index.html">
+        <a href="/">
             <img src="/img/branding/logo_light_horizontal.svg" alt="Isologotipo de la Marca Funkoshop">
         </a>
     </picture>
     <ul class="navbar__menu">
         <li class="menu__item menu__item__submenu">
-            <a href="/pages/shop/shop.html">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
+            <a href="/shop">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
         </li>
         <li class="menu__item">
-            <a href="/pages/contact.html">CONTACTO</a>
+            <a href="/contact">CONTACTO</a>
         </li>
         <li class="menu__item">
-            <a href="/pages/login.html">LOGIN</a>
+            <a href="/login">LOGIN</a>
         </li>
         <li class="menu__item">
-            <a class="carrito" href="/pages/shop/cart.html">
+            <button class="carrito" onclick="loadCart()">
                 <img src="/img/icons/cart-icon.svg" alt="ícono de carrito">
                 <span class="cantidadCarrito" id="itemsEnCarrito">0</span>
-            </a>
+            </button>
         </li>
     </ul>
     </nav>

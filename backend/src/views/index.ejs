@@ -44,11 +44,13 @@
             </picture>
         </section>
         <!-- Fin articulos -->
-        <section class="ultimosLanzamientos"> <!-- Ultimos lanzamientos -->
-        <h1>Últimos Lanzamientos</h1>
-        <ul class="ultimosLanzamientos__lista">
-            <%- include('./partials/card',{ cantidad: 3 } ) %>
-        </ul>
+        <section class="ultimosLanzamientos glide"> <!-- Ultimos lanzamientos -->
+            <h1>Últimos Lanzamientos</h1>
+            <div class="glide__track" data-glide-el="track">
+                <ul class="ultimosLanzamientos__lista glide__slides">
+                    <%- include('./partials/card',{ cantidad: 3 } ) %>
+                </ul>
+            </div>
         </section>
     </div>
 </main>

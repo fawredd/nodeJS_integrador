@@ -105,6 +105,7 @@ module.exports = {
   shop,
   item,
   carrito,
+  modificaCarrito,
   update,
   destroy,
 };

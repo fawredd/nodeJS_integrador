@@ -102,8 +102,9 @@
     border-radius: 50px;
     padding:11px 48px;
 }
-
 /* fin articulos home */
+
+
 /* Ultimos lanzamientos */
 .ultimosLanzamientos {
     margin-bottom: var(--espacio-36);
@@ -116,12 +117,10 @@
     margin-bottom: var(--espacio-16);
  }
 .ultimosLanzamientos__lista{
-    display:flex;
+ /*    display:flex;
     flex-direction: row;
     gap:0 var(--espacio-36);
-    /* flex-wrap: wrap; */
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
  }
- 
  
  /* fin ultimos lanzamientos */

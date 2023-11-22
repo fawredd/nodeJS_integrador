@@ -1,5 +1,22 @@
 console.log('JS del Front-end')
 
+//Inicializo el slider Glide
+new Glide('.glide',
+  {
+    type: 'carousel',
+    startAt: 0,
+    perView: 3,
+    breakpoints: {
+      991: {
+        perView: 2
+      },
+      768: {
+        perView: 1
+      }
+    }
+  }
+).mount()
+
 // Defino funciones para eventos de objetos propios
 const sumaCantidad = () => {
     const input_cantidad = document.querySelector('#input_cantidad');

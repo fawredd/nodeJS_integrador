@@ -10,8 +10,9 @@ const methodOverride = require("method-override");
 //Defino el static path
 app.use(express.static(path.join(__dirname, "/public")));
 //Defino que voy a utlizar ejs como view engine
-app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/src/views"));
+app.set("view engine", "ejs");
+console.debug (__dirname)
 //Indico donde se encuentran los layouts
 app.use(expressLayouts);
 app.set("layout", "layouts/layout");

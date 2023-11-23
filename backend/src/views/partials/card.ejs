@@ -1,22 +1,18 @@
-<% 
-for (let i = 0; i <= (cantidad -1); i++ ){
-%>
+<% for (let i = 0; i <= (cantidad -1); i++ ){ %>
 <li class="ul__item glide__slide">
-        <article>
-            <a  class="ul__articulos" href="/item/<%= items[i].id %>" >
-            <picture>
-                    <img src="<%= items[i].image %>" alt="<%= items[i].alt %>">
-            </picture>
-            <div class="ul__descripcion">
-                    <p><%= items[i].brand%></p>
-                    <h4><%= items[i].title%></h4>
-                    <p><%= items[i].price%></p>
-                    <p><%= items[i].payment%></p>
-            </div>
-            <span class="articulos__sticker"><%= items[i].sticker%></span>
-            </a>   
-        </article>
-    </li>
-<%
-}
-%>
+  <article>
+    <a class="ul__articulos" href="/item/<%= items[i].id %>">
+      <picture>
+        <img src="<%= items[i].image %>" alt="<%= items[i].alt %>" />
+      </picture>
+      <div class="ul__descripcion">
+        <p><%= items[i].brand%></p>
+        <h4><%= items[i].title%></h4>
+        <p><%= items[i].price%></p>
+        <p><%= items[i].payment%></p>
+      </div>
+      <span class="articulos__sticker"><%= items[i].sticker%></span>
+    </a>
+  </article>
+</li>
+<% } %>

@@ -20,7 +20,10 @@ app.set("layout", "layouts/layout");
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
-app.use(require("./src/routes/mainRouter"));
+app.use(require("./src/routes/mainRoutes"));
+app.use(require("./src/routes/shopRoutes"));
+app.use(require("./src/routes/adminRoutes"));
+app.use(require("./src/routes/authRoutes"));
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`));

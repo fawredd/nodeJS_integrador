@@ -2,8 +2,9 @@
     <div class="container items_page">
         
         <article class="item">
-            <picture>
-                    <img src="<%= items[id].image %>" alt="<%= items[id].alt %>">
+            <picture class="card-item__cover">
+                <img class="card-item__img--front" src="<%= items[id].image %>" alt="<%= items[id].alt %>" />
+                <img class="card-item__img--back" src="<%= items[id].imageHoover %>" alt="<%= items[id].alt %>" />
             </picture>
             <div class="item__descripcion">
                     <p class="desc__brand"><%= items[id].brand %></p>

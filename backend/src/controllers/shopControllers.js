@@ -13,13 +13,13 @@ Main Routes:
 //Controladores
 const shopControllers = {
   shop: (req, res) => {
-    res.render('pages/shop/shop',{items:data.items})
+    res.render('pages/shop/shop',{items:data.items,baseUrl: req.baseUrl})
   },
   shopItem: (req, res) => {
     res.render('pages/shop/item',{items:data.items,id:req.params.id, baseUrl: req.baseUrl})
   },
   cart: (req, res) => {
-    res.render('pages/shop/cart',{items:data.items,cart:data.cart})
+    res.render('pages/shop/cart',{items:data.items,cart:data.cart, baseUrl: req.baseUrl})
   },
 }
 

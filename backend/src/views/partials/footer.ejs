@@ -3,16 +3,18 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/pages/shop/shop.html">SHOP</a>
+                    <a href="/shop">SHOP</a>
+                </li>
+                <% if (typeof header !== "undefined"){%>
+                <li>
+                    <a href="/auth/register">REGISTRARSE</a>
+                </li>
+                <%}%>
+                <li>
+                    <a href="/auth/login">LOGIN</a>
                 </li>
                 <li>
-                    <a href="/pages/register.html">REGISTRARSE</a>
-                </li>
-                <li>
-                    <a href="/pages/login.html">LOGIN</a>
-                </li>
-                <li>
-                    <a href="/pages/contact.html">CONTACTO</a>
+                    <a href="/contact">CONTACTO</a>
                 </li>
             </ul>
             <picture>

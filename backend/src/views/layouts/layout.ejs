@@ -12,7 +12,11 @@
   <link rel="stylesheet" href="/css/index.css">
 </head>
 <body> 
-  <%- include('../partials/header'); %>
+  <% if (typeof header !== "undefined") { %>
+    <%- include('../partials/headerAdm'); %>
+  <% } else { %>
+    <%- include('../partials/header'); %>
+  <% } %>
   <%- body %> 
   <%- include('../partials/footer') %>
   <canvas id="starfield"></canvas>

@@ -1,13 +1,18 @@
-.glide__arrow .glide__arrow--left{
+.glide__arrow--left{
     left:24px;
-    filter:blur(0.2);
 }
 
-.glide__arrow .glide__arrow--right{
+.glide__arrow--right{
     right:24px;
-    filter:blur(0.2);
 }
 
 .glide iconify-icon{
     color:black;
+}
+
+.glide__arrow{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.glide__arrow:hover{
+    background-color: rgba(128, 128, 128, 0.5)
 }

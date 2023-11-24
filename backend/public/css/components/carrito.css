@@ -1,5 +1,12 @@
 .carrito{
     position:relative;
+    background: transparent;
+    border:none;
+    cursor:pointer;
+}
+.carrito:hover{
+    filter:drop-shadow(5px 5px 5px gray);
+    
 }
 .cantidadCarrito{
     display: inline-block;

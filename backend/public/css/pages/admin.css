@@ -30,6 +30,10 @@
     color:grey;
 }
 
+.admin__encabezado iconify-icon{
+    color:red;
+}
+
 .admin__encabezado{
     display:flex;
     width:100%;
@@ -99,5 +103,12 @@
 }
 .listado__item .item__options{
     text-wrap: nowrap;
+}
+
+.item__options--edit{
+    color:blue;
+}
+.item__options--trash{
+    color:red;
 }
 /* fin Admin */

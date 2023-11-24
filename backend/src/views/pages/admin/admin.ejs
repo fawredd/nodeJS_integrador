@@ -1,0 +1,45 @@
+<main id="app">
+    <div class="container admin">
+        <div class="admin__busqueda">
+            <span><iconify-icon icon="healthicons:magnifying-glass-outline"></iconify-icon></span>
+            <input type="text" name="adminInputBusqueda" id="iDadminInputBusqueda" placeholder="código, nombre o categoría" />
+        </div>    
+        <div class="admin__encabezado">
+            <h1>LISTADO DE PRODUCTOS</h1>
+            <a href="#">
+                AGREGAR
+                <span><iconify-icon icon="basil:add-solid" width="39"></iconify-icon></span>
+            </a>
+        </div>
+        <div class="admin__listado">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Código</th>
+                        <th>Nombre de producto</th>
+                        <th>Categoría</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% 
+                    for (item of items) { 
+                    console.log(JSON.stringify(item))
+                    %>
+                    <tr class="listado__item">
+                        <td><%=  item['id'] %></td>
+                        <td><%=  item['id'] %></td>
+                        <td><%=  item.title %></td>
+                        <td><%=  item.brand %></td>
+                        <td class="item__options">
+                            <span><iconify-icon icon="material-symbols:edit" width="33" class="item__options--edit"></iconify-icon></span>
+                            <span><iconify-icon icon="ph:trash" width="33" class="item__options--trash"></iconify-icon></span>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

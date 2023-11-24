@@ -9,7 +9,10 @@ const data = {
             "brand": "STAR WARS",
             "price": "1799.99",
             "payment": "3 CUOTAS SIN INTERÉS",
-            "sticker": "NUEVO"
+            "sticker": "NUEVO",
+            "category_name": "Figuras coleccionables",
+            "dues": 10,
+            "product_sku": "PKM001001"
         },
         {
             "id": "1",

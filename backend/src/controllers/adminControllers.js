@@ -14,7 +14,7 @@ Admin Routes:
 //Controladores
 const adminControllers = {
   admin: (req, res) => {
-    res.send('Cargando ruta /admin method GET o POST')
+    res.render('pages/admin/admin', {items:data.items, header: 'admin'})
   },
   adminEdit: (req,res) => res.send('Cargando ruta /admin/edit method GET o PUT'),
   adminDelete: (req,res) => res.send('Cargando ruta /admin/delete method DELETE'),

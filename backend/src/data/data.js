@@ -3,6 +3,7 @@ const data = {
         {
             "id": "0",
             "image": "/img/star-wars/trooper-1.webp",
+            "imageHoover": "/img/star-wars/trooper-box.webp",
             "alt": "Figura coleccionable Funko de un Stormtrooper",
             "title": "STORMTROOPER LIGHTSABER",
             "brand": "STAR WARS",
@@ -13,6 +14,7 @@ const data = {
         {
             "id": "1",
             "image": "/img/pokemon/pidgeotto-1.webp",
+            "imageHoover": "/img/pokemon/pidgeotto-box.webp",
             "alt": "Figura coleccionable Funko de Pidgeotto",
             "title": "PIDGEOTTO",
             "brand": "POKEMON",
@@ -23,6 +25,7 @@ const data = {
         {
             "id": "2",
             "image": "/img/harry-potter/luna-1.webp",
+            "imageHoover": "/img/harry-potter/luna-box.webp",
             "alt": "Figura coleccionable Funko de Luna Lovegood",
             "title": "LUNA LOVEGOOD LION MASK",
             "brand": "HARRY POTTER",
@@ -33,6 +36,7 @@ const data = {
         {
             "id": "3",
             "image": "/img/star-wars/baby-yoda-1.webp",
+            "imageHoover": "/img/star-wars/baby-yoda-box.webp",
             "alt": "Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.",
             "title": "BABY YODA BLUEBALL",
             "brand": "STAR WARS",

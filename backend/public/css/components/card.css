@@ -35,3 +35,29 @@
     color:white;
     font-size: var(--fuente-size-14);
 }
+
+.card-item__cover {
+   display:flex;
+}
+.card-item__cover img{
+   animation: fade 0.7s;
+}
+.card-item__img--back {
+   display:none;
+}
+.card-item__cover:hover .card-item__img--back {
+   display:block;
+}
+.card-item__cover:hover .card-item__img--front {
+   display:none;
+}
+
+@keyframes fade {
+   0% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+   }
+}

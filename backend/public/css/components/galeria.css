@@ -1,0 +1,13 @@
+.glide__arrow .glide__arrow--left{
+    left:24px;
+    filter:blur(0.2);
+}
+
+.glide__arrow .glide__arrow--right{
+    right:24px;
+    filter:blur(0.2);
+}
+
+.glide iconify-icon{
+    color:black;
+}

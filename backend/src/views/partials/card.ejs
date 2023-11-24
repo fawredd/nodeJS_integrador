@@ -2,8 +2,9 @@
 <li class="ul__item glide__slide">
   <article>
     <a class="ul__articulos" href="/item/<%= items[i].id %>">
-      <picture>
-        <img src="<%= items[i].image %>" alt="<%= items[i].alt %>" />
+      <picture class="card-item__cover">
+        <img class="card-item__img--front" src="<%= items[i].image %>" alt="<%= items[i].alt %>" />
+        <img class="card-item__img--back" src="<%= items[i].imageHoover %>" alt="<%= items[i].alt %>" />
       </picture>
       <div class="ul__descripcion">
         <p><%= items[i].brand%></p>

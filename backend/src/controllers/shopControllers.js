@@ -13,9 +13,14 @@ Main Routes:
 //Controladores
 const shopControllers = {
   shop: (req, res) => {
-    res.send('Cargando ruta /shop method GET')
+    res.render('pages/shop/shop',{items:data.items})
   },
-  cart: (req,res) => res.send('Cargando ruta /cart method GET'),
+  shopItem: (req, res) => {
+    res.render('pages/shop/item',{items:data.items,id:req.params.id, baseUrl: req.baseUrl})
+  },
+  cart: (req, res) => {
+    res.render('pages/shop/cart',{items:data.items,cart:data.cart})
+  },
 }
 
 module.exports = shopControllers

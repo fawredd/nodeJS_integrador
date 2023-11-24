@@ -11,8 +11,8 @@ Shop Routes:
 - POST -> /shop/cart
 */
 router.get("/shop", shopControllers.shop);
-router.get("/shop/item/:id", shopControllers.shop);
-router.post("/shop/item/:id/add", shopControllers.shop);
+router.get("/shop/item/:id", shopControllers.shopItem);
+router.post("/shop/item/:id/add", shopControllers.shopItem);
 router.get("/shop/cart", shopControllers.cart);
 router.post("/shop/cart", shopControllers.cart);
 

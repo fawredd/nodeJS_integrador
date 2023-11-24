@@ -111,4 +111,13 @@
 .item__options--trash{
     color:red;
 }
+.listado__item--button{
+    background: transparent;
+    border:none;
+    cursor:pointer;
+}
+.listado__item--button:hover{
+    filter:drop-shadow(3px 3px 2px);
+}
+
 /* fin Admin */

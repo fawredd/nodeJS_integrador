@@ -13,7 +13,7 @@ Main Routes:
 const mainControllers = {
   home: (req, res) => {
     console.log('Cargando ruta /home method GET');
-    res.render("index", { items: data.items });
+    res.render("index", { items: data.items, baseUrl: req.baseUrl });
   },
   contact: (req,res) => res.send('Cargando ruta /contact method GET'),
   about: (req,res) => res.send('Cargando ruta /about method GET'),

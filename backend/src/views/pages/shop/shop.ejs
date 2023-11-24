@@ -52,9 +52,9 @@
             </ul>
         </div>
     </aside>    
-    <section class="listado"> <!-- Listado de articulos -->
-        <ul class="ultimosLanzamientos__lista">
-            <%- include('../../partials/card',{ cantidad: 4 } ) %>
+    <section"> <!-- Listado de articulos -->
+        <ul class="listado">
+            <%- include('../../partials/card',{ cantidad: 4, baseUrl: baseUrl } ) %>
         </ul>
     </section>
     </div>

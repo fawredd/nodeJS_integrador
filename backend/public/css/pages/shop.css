@@ -55,5 +55,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: left;
+    column-gap: var(--espacio-24);
    }
  

@@ -1,7 +1,7 @@
 <% for (let i = 0; i <= (cantidad -1); i++ ){ %>
 <li class="ul__item glide__slide">
   <article>
-    <a class="ul__articulos" href="/item/<%= items[i].id %>">
+    <a class="ul__articulos" href="<%= baseUrl %>/shop/item/<%= items[i].id %>">
       <picture class="card-item__cover">
         <img class="card-item__img--front" src="<%= items[i].image %>" alt="<%= items[i].alt %>" />
         <img class="card-item__img--back" src="<%= items[i].imageHoover %>" alt="<%= items[i].alt %>" />

@@ -24,6 +24,10 @@ app.use(require("./src/routes/mainRoutes"));
 app.use(require("./src/routes/shopRoutes"));
 app.use(require("./src/routes/adminRoutes"));
 app.use(require("./src/routes/authRoutes"));
+// Middleware para manejar el error 404
+app.use((req, res, next) => {
+    res.status(404).send('Recurso no encontrado');
+    });
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`));

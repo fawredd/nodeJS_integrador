@@ -26,7 +26,7 @@ const Producto = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        cgory_nameate: {
+        category_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -67,7 +67,7 @@ const Producto = sequelize.define(
 ;(async () => {
   // await sequelize.sync();
   // await sequelize.sync({ force: true });
-    await sequelize.sync({ alter: true })
+    await sequelize.sync({ alter:true })
 })()
 
 module.exports = Producto

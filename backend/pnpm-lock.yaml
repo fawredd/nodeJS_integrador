@@ -11,6 +11,9 @@ dependencies:
   cookie-session:
     specifier: ^2.0.0
     version: 2.0.0
+  dotenv:
+    specifier: ^16.3.1
+    version: 16.3.1
   ejs:
     specifier: ^3.1.9
     version: 3.1.9
@@ -424,6 +427,11 @@ packages:
   /detect-libc@2.0.2:
     resolution: {integrity: sha512-UX6sGumvvqSaXgdKGUsgZWqcUyIXZ/vZTrlRT/iobiKhGL0zL4d3osHj3uqllWJK+i+sixDS/3COVEOFbupFyw==}
     engines: {node: '>=8'}
+    dev: false
+
+  /dotenv@16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+    engines: {node: '>=12'}
     dev: false
 
   /dottie@2.0.6:

@@ -5,7 +5,7 @@ const path = require("path");
 const sharp = require("sharp");
 
 const { validationResult } = require("express-validator");
-const model = require("../../models/Producto");
+const model = require("../models/producto");
 
 /* 
 Admin Routes:
@@ -19,14 +19,13 @@ Admin Routes:
 
 //Controladores
 const adminControllers = {
-  admin: (req, res) => {
+  admin: async (req, res) => {
     try {
       const productos = await model.findAll({
         // attributes: ["id", "nombre", "precio"],
       });
-      res.render('pages/admin/admin', {items:productos, header: 'admin'})
-      //res.render('pages/admin/admin', {items:data.items, header: 'admin'})
-
+      console.log(productos)
+      //res.render('pages/admin/admin', {items:productos, header: 'admin'})
     } catch (error) {
       console.log(error);
       res.status(500).send(error);

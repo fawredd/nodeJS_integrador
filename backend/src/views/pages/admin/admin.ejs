@@ -24,16 +24,17 @@
                 </thead>
                 <tbody>
                     <% 
+                    console.log(JSON.stringify(items))
                     for (item of items) { 
                     %>
                     <tr class="listado__item">
-                        <td><%=  item['id'] %></td>
-                        <td><%=  item['id'] %></td>
-                        <td><%=  item.title %></td>
-                        <td><%=  item.brand %></td>
+                        <td><%=  item.product_id %></td>
+                        <td><%=  item.product_sku %></td>
+                        <td><%=  item.product_name %></td>
+                        <td><%=  item.licence_name %></td>
                         <td class="item__options">
-                            <span><a class="listado__item--button" href="/admin/edit/<%= item['id'] %>"><iconify-icon icon="material-symbols:edit" width="33" class="item__options--edit"></iconify-icon></a></span>
-                            <span><a class="listado__item--button" href="/admin/delete/<%= item['id'] %>"><iconify-icon icon="ph:trash" width="33" class="item__options--trash"></iconify-icon></a></span>
+                            <span><a class="listado__item--button" href="/admin/edit/<%= item.product_id %>"><iconify-icon icon="material-symbols:edit" width="33" class="item__options--edit"></iconify-icon></a></span>
+                            <span><a class="listado__item--button" href="/admin/delete/<%= item.product_id %>"><iconify-icon icon="ph:trash" width="33" class="item__options--trash"></iconify-icon></a></span>
                         </td>
                     </tr>
                     <% } %>

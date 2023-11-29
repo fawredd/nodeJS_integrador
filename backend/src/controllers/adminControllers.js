@@ -24,15 +24,27 @@ const adminControllers = {
       const productos = await model.findAll({
         // attributes: ["id", "nombre", "precio"],
       });
-      console.log(productos)
-      //res.render('pages/admin/admin', {items:productos, header: 'admin'})
+      res.render('pages/admin/admin', {items:productos, header: 'admin'})
     } catch (error) {
       console.log(error);
       res.status(500).send(error);
     }
   },
-  adminCreate: (req, res) => {
-    res.render('pages/admin/admin', {items:data.items, header: 'admin'})
+  adminCreate: async (req, res) => {
+    try {
+      const productos = await model.findAll(
+        {
+          where: {
+            product_id: req.params.id,
+          }
+        }
+      );
+      res.render('pages/admin/create', {items:productos, header: 'admin'})
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
+    
   },
   adminEdit: (req,res) => {
     

@@ -1,0 +1,51 @@
+<main id="app">
+    <div class="container admin">
+        <h1>CREAR NUEVO ITEM</h1>
+        <form action="admin/create" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="iId" value="">
+            <div class="create__fila">
+                <label for="iCategoria">Categoria</label>
+                <select name="iCategorias" id="categorias" class="">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="iLicencia">Licencia</label>
+                <select name="iLicencia" id="licencia" class="">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <label for="iNombre">Nombre del producto</label>
+            <input type="text" id="nombre" name="iNombre">
+            <textarea name="iDescripcion" id="descripcion" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
+            <div class="create__fila">
+                <label for="iSKU">SKU</label>
+                <input type="text" id="SKU" name="iSKU">
+                <label for="iPrecio">Precio</label>
+                <input type="number" id="precio" name="iPrecio">
+                <label for="iStock">Stock</label>
+                <input type="number" id="stock" name="iStock">
+            </div>
+            <div class="create__fila">
+                <label for="iDescuento">Descuento</label>
+                <input type="number" id="descuento" name="iDescuento" placeholder="0%" value="0">
+                <label for="iCuotas">Cuotas</label>
+                <select name="iCuotas" id="cuotas" class="">
+                    <option value="1" selected>1 cuota</option>
+                    <option value="2">2 cuotas</option>
+                    <option value="3">3 cuotas</option>
+                </select>
+                <label for="iStock">Stock</label>
+                <input type="number" id="stock" name="iStock">
+            </div>
+            <input type="file" name="imagen" id="imagen" accept="image">
+            <div class="create__fila">
+                <button type="submit">Agregar producto</button>
+                <button type="reset">Limpiar</button>
+            </div>
+        </form>
+    </div>
+
+</main>

@@ -10,17 +10,17 @@
             <div class="flex-item">TOTAL</div>
             <div class="flex-item">&nbsp;</div>
         </div>
-        <% if (cart.items.length === 0){ %>
+        <% if (cart.length === 0){ %>
         <div class="compras_tabla_filas compras_tabla fnt-700 encabezado">
             <div style="margin:0 auto;">EL CARRITO ESTA VACIO</div>
         </div>
         <% 
         }
-        
-        for (let i = 0; i < cart.items.length; i++){
+        console.log(`\n ${JSON.stringify(cart)} \n`)
+        for (let i = 0; i < cart.length; i++){
         %>
         
-        <%- include('../../partials/itemcompra',{ item: cart.items[i] } ) %>
+        <%- include('../../partials/itemCompra',{ item: items[cart[i].cart_item] } ) %>
         <%
         }
         %>
@@ -33,20 +33,20 @@
             <div class="resumen__valores">
                 <div class="valores__fila">
                     <p>CANTIDAD DE ELEMENTOS</p>
-                    <p><%= cart.cartItems %></p>
+                    <p><%= cart.length %></p>
                 </div>
                 <div class="valores__fila">
                     <p>SUBTOTAL</p>
-                    <p><%= cart.importe %></p>
+                    <p><%= 0 %></p>
                 </div>
                 <div class="valores__fila">
                     <p>ENVIO</p>
-                    <p><%= cart.envio %></p>
+                    <p><%= 0 %></p>
                 </div>
                 <hr>
                 <div class="valores__fila">
                     <p>TOTAL</p>
-                    <p><%= cart.totalCart %></p>
+                    <p><%= 0 %></p>
                 </div>
             </div>
             <button>IR A PAGAR</button>

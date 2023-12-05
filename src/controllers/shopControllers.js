@@ -1,7 +1,7 @@
 //Importo data temporal
 //const data = require('../data/data')
 const productsModel = require("../models/producto");
-const cartModel = require("../models/cart");
+const {Cart, CartItems} = require("../models/cart");
 /* 
 Main Routes:
 - GET -> /shop
@@ -52,7 +52,14 @@ const shopControllers = {
   cart: async (req, res) => {
     try {
       const productos = await productsModel.findAll({});
-      const cart = await cartModel.findAll({});
+      const cart = await CartItems.findAll({
+        include: [
+          {
+            model: Cart,
+            model: productsModel
+          },
+        ],
+      });
       res.render('pages/shop/cart',{items:productos,cart:cart, baseUrl: req.baseUrl})
     } catch (error) {
       console.log(error);

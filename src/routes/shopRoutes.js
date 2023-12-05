@@ -11,10 +11,11 @@ Shop Routes:
 - POST -> /shop/cart
 */
 router.get("/shop", (req,res) => res.redirect('/shop/1'));
-router.get("/shop/:page", shopControllers.shop);
-router.get("/shop/item/:id", shopControllers.shopItem);
-router.post("/shop/item/:id/add", shopControllers.shopItem);
 router.get("/shop/cart", shopControllers.cart);
 router.post("/shop/cart", shopControllers.cart);
+router.get("/shop/item/:id", shopControllers.shopItem);
+router.post("/shop/item/:id/add", shopControllers.shopItem);
+
+router.get("/shop/:page", shopControllers.shop);
 
 module.exports = router;

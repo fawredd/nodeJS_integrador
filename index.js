@@ -11,7 +11,7 @@ app.use(
         keys: ["S3cr3t01", "S3cr3t02"],
     })
 );  
-app.use((req, res, next) => {
+app.use(async (req, res, next) => {
     res.locals.userId = req.session.userId;
     next();
   });
@@ -28,6 +28,24 @@ const expressLayouts = require("express-ejs-layouts");
 const methodOverride = require("method-override");
 
 const sequelize = require("./src/models/connection");
+const {Cart,CartItems} = require("./src/models/cart");
+app.use(async (req, res, next) => {
+    res.locals.cartCant = 0;
+    try {
+ /*        const cart = await CartItems.findAll({
+            include: [
+                {
+                    model: Cart,
+                },
+                ],
+        });
+        res.locals.cartCant = cart.length */
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+    next();
+});
 
 //Defino el static path
 app.use(express.static(path.join(__dirname, "/public")));
@@ -56,7 +74,7 @@ app.use((req, res, next) => {
 const PORT = 3000;
 app.listen(PORT, async () => {
     try {
-        await sequelize.sync({alter:false});
+        await sequelize.sync({alter:true});
     } catch (error) {
         console.log(error);
     }

@@ -56,7 +56,6 @@ const shopControllers = {
         include: [
           {
             model: Cart,
-            model: productsModel
           },
         ],
       });

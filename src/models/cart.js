@@ -25,32 +25,23 @@ const Cart = sequelize.define(
     }
 )
 const CartItems = sequelize.define(
-    'cartItems', {
-        cartItem_id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        cart_id:{
-            type: DataTypes.INTEGER,
-            allowNull:false
-        },
-        cart_item_id:{
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        cart_item_price:{
-            type: DataTypes.FLOAT,
-            allowNull: false,
-            defaultValue:0
-        }
-
+    'CartItems',
+    {
+    cartItem_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    cart_item_price: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+        defaultValue: 0,
+    },
     }
-)
-Cart.hasMany(CartItems, { foreignKey: 'cart_id' });
-CartItems.belongsTo(Cart,{ foreignKey: 'cart_id' })
-productsModel.hasMany(CartItems, {foreignKey: 'cart_item_id'})
-//CartItems.belongsTo(productsModel, { foreignKey: 'cart_item_id', targetKey: 'product_id' });
+);
 
+Cart.hasMany(CartItems, { foreignKey: 'cart_id' });
+CartItems.belongsTo(Cart, { foreignKey: 'cart_id' });
+CartItems.belongsTo(productsModel, { foreignKey: 'product_id' });
 
 module.exports = {Cart, CartItems}

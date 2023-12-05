@@ -1,5 +1,6 @@
 //Importo data temporal
-const data = require('../data/data')
+//const data = require('../data/data')
+const model = require("../models/producto");
 
 /* 
 Main Routes:
@@ -11,10 +12,17 @@ Main Routes:
 
 //Controladores
 const mainControllers = {
-  home: (req, res) => {
-    console.log('Cargando ruta /home method GET');
-    res.render("index", { items: data.items, baseUrl: req.baseUrl });
-  },
+  home: async (req, res) => {
+    try {
+      const productos = await model.findAll({
+        // attributes: ["id", "nombre", "precio"],
+      });
+      res.render("index", { items: productos, baseUrl: req.baseUrl });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
+    },
   contact: (req,res) => res.send('Cargando ruta /contact method GET'),
   about: (req,res) => res.send('Cargando ruta /about method GET'),
   faq: (req,res) => res.send('Cargando ruta /faq method GET'),

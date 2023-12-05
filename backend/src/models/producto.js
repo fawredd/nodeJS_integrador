@@ -57,17 +57,19 @@ const Producto = sequelize.define(
         img_back: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        payment: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        sticker: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     },
     {
         timestamps: true,
     }
 )
-
-;(async () => {
-  // await sequelize.sync();
-  // await sequelize.sync({ force: true });
-    await sequelize.sync({ alter:true })
-})()
 
 module.exports = Producto

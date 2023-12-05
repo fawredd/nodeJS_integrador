@@ -13,7 +13,11 @@
             <a href="/contact">CONTACTO</a>
         </li>
         <li class="menu__item">
-            <a href="/auth/login">LOGIN</a>
+            <% if (userId){ %>
+                <a href="/auth/logout">LOGOUT</a>    
+            <% } else { %>
+                <a href="/auth/login">LOGIN</a>
+            <% } %>
         </li>
         <li class="menu__item">
             <a class="carrito" href="/shop/cart">

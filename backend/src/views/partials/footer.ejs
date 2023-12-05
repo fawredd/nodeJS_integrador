@@ -5,14 +5,21 @@
                 <li>
                     <a href="/shop">SHOP</a>
                 </li>
-                <% if (typeof header !== "undefined"){%>
-                <li>
-                    <a href="/auth/register">REGISTRARSE</a>
-                </li>
-                <%}%>
-                <li>
-                    <a href="/auth/login">LOGIN</a>
-                </li>
+                <% if (userId){ %>
+                    <li> 
+                        <a href="/logout">LOGOUT</a>    
+                    </li>
+                    <li> 
+                        <a href="/admin">ADMIN</a>    
+                    </li>
+                    <% } else { %>
+                    <li>
+                        <a href="/register">REGISTRARSE</a>
+                    </li>
+                    <li>
+                        <a href="/login">LOGIN</a>
+                    </li>
+                <% } %>
                 <li>
                     <a href="/contact">CONTACTO</a>
                 </li>

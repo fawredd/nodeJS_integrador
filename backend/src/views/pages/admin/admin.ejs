@@ -34,12 +34,22 @@
                         <td><%=  item.licence_name %></td>
                         <td class="item__options">
                             <span><a class="listado__item--button" href="/admin/edit/<%= item.product_id %>"><iconify-icon icon="material-symbols:edit" width="33" class="item__options--edit"></iconify-icon></a></span>
-                            <span><a class="listado__item--button" href="/admin/delete/<%= item.product_id %>"><iconify-icon icon="ph:trash" width="33" class="item__options--trash"></iconify-icon></a></span>
+                            <span>
+                                <form
+                                    class="form-delete"
+                                    style="display: inline-block"
+                                    action="/admin/delete/<%= item.product_id %>?_method=DELETE"
+                                    method="post"
+                                >
+                                    <button class="listado__item--button" type="submit"><iconify-icon icon="ph:trash" width="33" class="item__options--trash"></iconify-icon></button>
+                                </form>
+                            </span>
                         </td>
                     </tr>
                     <% } %>
                 </tbody>
             </table>
+            <%- include('../../partials/pagination', { page:page, totalPages: totalPages, url:'admin'}) %>
         </div>
     </div>
 </main>

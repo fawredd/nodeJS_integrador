@@ -3,23 +3,23 @@
         
         <article class="item">
             <picture class="card-item__cover">
-                <img class="card-item__img--front" src="<%= items[id].image %>" alt="<%= items[id].alt %>" />
-                <img class="card-item__img--back" src="<%= items[id].imageHoover %>" alt="<%= items[id].alt %>" />
+                <img class="card-item__img--front" src="/img/<%= items[id].img_front %>" alt="<%= items[id].product_description %>" />
+                <img class="card-item__img--back" src="/img/<%= items[id].img_back %>" alt="<%= items[id].product_description %>" />
             </picture>
             <div class="item__descripcion">
-                    <p class="desc__brand"><%= items[id].brand %></p>
-                    <h4 class="desc__title"><%= items[id].title %></h4>
-                    <p class="desc__alt"><%= items[id].alt %></p>
-                    <p class="desc__price"><%= items[id].price %></p>
-                    <div class="datosCompra">
-                      <%- include('../../partials/cantidad',{ items } ) %>
-                      <button class="agregarAlCarrito" onclick="agregarACarrito(<%=id%>)">Agregar al carrito</button>
-                    </div>
-                    <div class="metodosDePago">
-                            <p>Ver metodos de pago</p>
-                            <span>-</span>
-                            <p><%= items[id].payment %></p>
-                    </div>
+                <p class="desc__brand"><%= items[id].licence_name %></p>
+                <h4 class="desc__title"><%= items[id].product_name %></h4>
+                <p class="desc__alt"><%= items[id].product_description %></p>
+                <p class="desc__price"><%= items[id].product_price %></p>
+                <div class="datosCompra">
+                    <%- include('../../partials/cantidad',{ items } ) %>
+                    <button class="agregarAlCarrito" onclick="agregarACarrito(<%=items[id].product_id%>)">Agregar al carrito</button>
+                </div>
+                <div class="metodosDePago">
+                    <p>Ver metodos de pago</p>
+                    <span>-</span>
+                    <p><%= items[id].product_payment%></p>
+                </div>
             </div>
         </article>
                 

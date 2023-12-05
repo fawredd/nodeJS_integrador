@@ -1,0 +1,21 @@
+<div class="paginacion">
+<% if (page > 1) { %>
+    <a class="box page-box" href="/<%=url%>/<%= Number(page) - 1 %>">&lt;</a>
+<% } %>
+<% for (let i = 1; i <= totalPages; i++) { %>
+    <% if (i == page) { %>
+    <div class="box current-page">
+        <%= i %>
+    </div>
+    <% } else { %>
+    <a href="/<%=url%>/<%= i %>">
+        <div class="box page-box">
+        <%= i %>
+        </div>
+    </a>
+    <% } %>
+<% } %>
+<% if (page < totalPages) { %>
+    <a class="box page-box" href="/<%=url%>/<%= Number(page) + 1 %>">&gt;</a>
+<% } %>
+</div>

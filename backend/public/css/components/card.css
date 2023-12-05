@@ -34,6 +34,7 @@
     background-color: var(--color-rojo);
     color:white;
     font-size: var(--fuente-size-14);
+    text-transform: uppercase;
 }
 
 .card-item__cover {

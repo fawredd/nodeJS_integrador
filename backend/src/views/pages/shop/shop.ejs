@@ -54,8 +54,9 @@
     </aside>    
     <section"> <!-- Listado de articulos -->
         <ul class="listado">
-            <%- include('../../partials/card',{ cantidad: 4, baseUrl: baseUrl } ) %>
+            <%- include('../../partials/card',{ cantidad: 0, baseUrl: baseUrl } ) %>
         </ul>
+        <%- include('../../partials/pagination', { page:page, totalPages: totalPages, url:'shop'}) %>
     </section>
     </div>
 </main>

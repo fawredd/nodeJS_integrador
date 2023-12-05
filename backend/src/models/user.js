@@ -23,8 +23,4 @@ User.beforeSave(async (user, options) => {
   user.password = hash;
 });
 
-(async () => {
-  await sequelize.sync();
-})();
-
 module.exports = User;

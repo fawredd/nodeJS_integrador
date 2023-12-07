@@ -1,20 +1,30 @@
 // Defino funciones para eventos de objetos propios
-const sumaCantidad = () => {
-    const input_cantidad = document.querySelector('#input_cantidad');
+const sumaCantidad = (button) => {
+    const input_cantidad = button.parentNode.parentNode.querySelector('#input_cantidad');
     let cantidad = Number(input_cantidad.value)
     cantidad++
     input_cantidad.value = cantidad
     console.log("Aumento a " + input_cantidad.value)
 }
 
-const restaCantidad = () => {
-    const input_cantidad = document.querySelector('#input_cantidad');
+const restaCantidad = (button) => {
+    const input_cantidad = button.parentNode.parentNode.querySelector('#input_cantidad');
     let cantidad = Number(input_cantidad.value)
     if(cantidad>=1) {
         cantidad -= 1
     }
     input_cantidad.value = cantidad
     console.log("Disminuye a " + input_cantidad.value)
+}
+const verificaCantidad = (cual) => {
+  const input_cantidad = cual.parentNode.querySelector('#input_cantidad');
+  let cantidad = Number(input_cantidad.value)
+  if(cantidad>=1) {
+    input_cantidad.value = cantidad.toFixed(0)
+  } else {
+    input_cantidad.value = 0
+  }
+  console.log("Se establece a " + input_cantidad.value)
 }
 
 //Inicializo el slider Glide

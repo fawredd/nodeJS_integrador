@@ -1,8 +1,8 @@
 <div class="comp__cantidad">
-    <input id="input_cantidad" type="number" maxlength="4" step="1" value="<%= cantidad %>">
+    <input id="input_cantidad" onchange="verificaCantidad(this)" type="number" maxlength="4" step="1" value="<%= cantidad %>">
     <div class="masmenos">
-        <button onclick="sumaCantidad()">+</button>
-        <button onclick="restaCantidad()">-</button>
+        <button onclick="sumaCantidad(this)">+</button>
+        <button onclick="restaCantidad(this)">-</button>
     </div>
 </div>
 

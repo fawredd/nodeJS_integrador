@@ -37,6 +37,11 @@ const CartItems = sequelize.define(
         allowNull: false,
         defaultValue: 0,
     },
+    cartItem_cant: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+    },
     }
 );
 

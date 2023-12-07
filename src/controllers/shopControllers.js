@@ -52,10 +52,10 @@ const shopControllers = {
   cart: async (req, res) => {
     try {
       const productos = await productsModel.findAll({});
-      const cart = await CartItems.findAll({
+      const cart = await Cart.findAll({
         include: [
           {
-            model: Cart,
+            model: CartItems,
           },
         ],
       });

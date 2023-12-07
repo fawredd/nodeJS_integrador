@@ -14,7 +14,7 @@ app.use(
 app.use(async (req, res, next) => {
     res.locals.userId = req.session.userId;
     next();
-  });
+});
 const isLogin = (req, res, next) => {
     if (!req.session.userId) {
         return res.redirect("/login");
@@ -32,14 +32,18 @@ const {Cart,CartItems} = require("./src/models/cart");
 app.use(async (req, res, next) => {
     res.locals.cartCant = 0;
     try {
- /*        const cart = await CartItems.findAll({
+     const cart = await Cart.findAll({
             include: [
                 {
-                    model: Cart,
+                    model: CartItems
                 },
                 ],
         });
-        res.locals.cartCant = cart.length */
+        let sumaCantTotal = 0
+        cart[0].CartItems.forEach((item) => {
+            sumaCantTotal += item.cartItem_cant
+        })
+        res.locals.cartCant = sumaCantTotal
     } catch (error) {
         console.log(error);
         res.status(500).send(error);
@@ -74,7 +78,7 @@ app.use((req, res, next) => {
 const PORT = 3000;
 app.listen(PORT, async () => {
     try {
-        await sequelize.sync({alter:true});
+        await sequelize.sync({alter:false});
     } catch (error) {
         console.log(error);
     }

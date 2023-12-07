@@ -10,17 +10,19 @@
             <div class="flex-item">TOTAL</div>
             <div class="flex-item">&nbsp;</div>
         </div>
-        <% if (cart.length === 0){ %>
+        <% 
+        console.log(`\n ${JSON.stringify(cart)} \n`)
+        if (cart[0].CartItems.length === 0){ 
+        %>
         <div class="compras_tabla_filas compras_tabla fnt-700 encabezado">
             <div style="margin:0 auto;">EL CARRITO ESTA VACIO</div>
         </div>
         <% 
         }
-        console.log(`\n ${JSON.stringify(cart)} \n`)
-        for (let i = 9; i < cart.length; i++){
-        %>
         
-        <%- include('../../partials/itemCompra',{ item: items[cart[i].cart_item] } ) %>
+        for (let i = 0; i < cart[0].CartItems.length; i++){
+        %>
+            <%- include('../../partials/itemCompra',{ item: items[cart[0].CartItems[i].cartItem_id] , cantidad: cart[0].CartItems[i].cartItem_cant } ) %>
         <%
         }
         %>
@@ -33,20 +35,35 @@
             <div class="resumen__valores">
                 <div class="valores__fila">
                     <p>CANTIDAD DE ELEMENTOS</p>
-                    <p><%= cart.length %></p>
+                    <p>
+                        <%
+                        let sumaCantTotal = 0
+                        cart[0].CartItems.forEach((item) => {
+                            sumaCantTotal += item.cartItem_cant
+                        })%>
+                        <%= sumaCantTotal%>
+                    </p>
                 </div>
                 <div class="valores__fila">
                     <p>SUBTOTAL</p>
-                    <p><%= 0 %></p>
+                    <p>
+                        <%
+                        let sumaTotal = 0
+                        cart[0].CartItems.forEach((item) => {
+                            sumaTotal += item.cart_item_price * item.cartItem_cant
+                            console.log(`Precio: ${item.cart_item_price} Cant:${item.cartItem_cant}`)
+                        })%>
+                        <%= sumaTotal.toFixed(2) %>
+                    </p>
                 </div>
                 <div class="valores__fila">
                     <p>ENVIO</p>
-                    <p><%= 0 %></p>
+                    <p><%= cart[0].cart_envio %></p>
                 </div>
                 <hr>
                 <div class="valores__fila">
                     <p>TOTAL</p>
-                    <p><%= 0 %></p>
+                    <p><%= (cart[0].cart_envio + sumaTotal).toFixed(2) %></p>
                 </div>
             </div>
             <button>IR A PAGAR</button>

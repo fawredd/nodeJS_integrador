@@ -11,11 +11,11 @@
     </div>
   </div>
   <div class="flex-item">
-    <%- include('cantidad') %>
+    <%- include('cantidad'), {cantidad: cantidad} %>
   </div>
-  <div class="flex-item precio_total"><%= '$ 0.00' %></div>
+  <div class="flex-item precio_total"><%= item.product_price * cantidad %></div>
   <div class="flex-item">
-    <button onclick="emiteElimina">
+    <button class="listado__item--button" onclick="emiteElimina">
         <iconify-icon icon="zondicons:close-outline" style="color: red;" width="28"></iconify-icon>
     </button>
   </div>

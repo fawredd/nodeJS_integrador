@@ -12,7 +12,7 @@
                 <p class="desc__alt"><%= items[id].product_description %></p>
                 <p class="desc__price"><%= items[id].product_price %></p>
                 <div class="datosCompra">
-                    <%- include('../../partials/cantidad',{ items } ) %>
+                    <%- include('../../partials/cantidad',{cantidad: 0} ) %>
                     <button class="agregarAlCarrito" onclick="agregarACarrito(<%=items[id].product_id%>)">Agregar al carrito</button>
                 </div>
                 <div class="metodosDePago">

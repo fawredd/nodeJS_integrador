@@ -26,4 +26,4 @@ coverage
 .env
 .prettierignore
 .prettierrc.json
-
+.package-lock.json

@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('./connection')
-const productsModel = require("../models/producto");
+const UserModel = require("../models/user");
+const ProductModel = require("../models/producto")
 
 const Cart = sequelize.define(
     'Cart',
@@ -9,10 +10,6 @@ const Cart = sequelize.define(
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
         },
         cart_envio: {
             type: DataTypes.FLOAT,
@@ -45,8 +42,9 @@ const CartItems = sequelize.define(
     }
 );
 
-Cart.hasMany(CartItems, { foreignKey: 'cart_id' });
-CartItems.belongsTo(Cart, { foreignKey: 'cart_id' });
-CartItems.belongsTo(productsModel, { foreignKey: 'product_id' });
+Cart.belongsTo(UserModel)
+Cart.hasMany(CartItems)
+CartItems.belongsTo(Cart)
+CartItems.belongsTo(ProductModel)
 
 module.exports = {Cart, CartItems}

@@ -12,7 +12,7 @@
         </div>
         <% 
         console.log(`\n ${JSON.stringify(cart)} \n`)
-        if (cart[0].CartItems.length === 0){ 
+        if (cart.length === 0){ 
         %>
         <div class="compras_tabla_filas compras_tabla fnt-700 encabezado">
             <div style="margin:0 auto;">EL CARRITO ESTA VACIO</div>
@@ -22,7 +22,7 @@
         
         for (let i = 0; i < cart[0].CartItems.length; i++){
         %>
-            <%- include('../../partials/itemCompra',{ item: items[cart[0].CartItems[i].cartItem_id] , cantidad: cart[0].CartItems[i].cartItem_cant } ) %>
+            <%- include('../../partials/itemCompra',{ item: cart[0].CartItems[i].Producto , cantidad: cart[0].CartItems[i].cartItem_cant } ) %>
         <%
         }
         %>

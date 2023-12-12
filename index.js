@@ -32,12 +32,15 @@ const {Cart,CartItems} = require("./src/models/cart");
 app.use(async (req, res, next) => {
     res.locals.cartCant = 0;
     try {
-     const cart = await Cart.findAll({
+        const cart = await Cart.findAll({
+            where: {
+                UserId: 1,
+            },    
             include: [
-                {
-                    model: CartItems
-                },
-                ],
+                    {
+                        model: CartItems
+                    },
+                    ],
         });
         let sumaCantTotal = 0
         cart[0].CartItems.forEach((item) => {

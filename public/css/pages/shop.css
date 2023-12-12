@@ -1,19 +1,17 @@
 /* SHOP PAGE */
 .dosColumnas{
-    display:flex;
-    flex-direction: row;
+    display:grid;
+    grid-template-columns: 1fr 3fr;
     margin-top:var(--espacio-36);
 }
 /* Aside */
 .aside{
-    position:relative;
     display:flex;
     flex-direction: column;
     row-gap: var(--espacio-12);
-    flex-grow: 1;
-    flex-basis: 0;
     padding: 0 var(--espacio-12);
-    max-width:15%;
+    justify-content: flex-start;
+    max-width: 225px;
  }
  .aside > div{
     display:flex;
@@ -49,12 +47,10 @@
     margin-bottom: 5px;
 }
 /* fin aside */
- 
-   .listado{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+
+.listado{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: left;
     column-gap: var(--espacio-24);
-   }
- 
+}

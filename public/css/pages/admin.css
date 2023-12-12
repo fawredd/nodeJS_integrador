@@ -50,7 +50,7 @@
 .admin__encabezado a{
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     font-weight: bold;
     font-size: var(--fuente-size-14);

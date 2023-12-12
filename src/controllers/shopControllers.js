@@ -51,15 +51,22 @@ const shopControllers = {
   },
   cart: async (req, res) => {
     try {
-      const productos = await productsModel.findAll({});
       const cart = await Cart.findAll({
+        where: {
+          UserId: 1,
+        },
         include: [
           {
             model: CartItems,
+            include: [
+              {
+                model: productsModel,
+              },
+            ]
           },
         ],
       });
-      res.render('pages/shop/cart',{items:productos,cart:cart, baseUrl: req.baseUrl})
+      res.render('pages/shop/cart',{cart: cart, baseUrl: req.baseUrl})
     } catch (error) {
       console.log(error);
       res.status(500).send(error);

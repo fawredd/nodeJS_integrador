@@ -33,7 +33,7 @@ if ( !(document.querySelector('.glide') == null ) ){
     {
       type: 'carousel',
       startAt: 0,
-      perView: 3,
+      perView: 4,
       breakpoints: {
         991: {
           perView: 2
@@ -44,4 +44,12 @@ if ( !(document.querySelector('.glide') == null ) ){
       }
     }
   ).mount()
+}
+
+if (getSequelizeTypeFromJsonFormat(Storage) !== "undefined"){
+  if (localStorage.getItem("cantCarrito") === null){
+    localStorage.setItem("cantCarrito",0)
+  }
+}else{
+  console.log("LocalStorage no soportado")
 }

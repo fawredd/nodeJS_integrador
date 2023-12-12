@@ -1,7 +1,8 @@
 .ul__item{
-    min-width:304px;
+    /* min-width:304px;
+    max-width:304px; */
     min-height:512px;
-    max-width:304px;
+    
 }
 
 .ul__articulos{

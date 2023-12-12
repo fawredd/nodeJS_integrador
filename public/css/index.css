@@ -13,6 +13,7 @@
 @import url('./misc/helpers.css');
 @import url('./misc/animations.css');
 
+
 /* PARTIALS */
 
 @import url('./partials/header.css');
@@ -40,3 +41,6 @@
 @import url('./pages/create.css');
 @import url('./pages/edit.css');
 @import url('./pages/compras.css');
+
+/* RESPONSIVE */
+@import url('./misc/responsive.css');

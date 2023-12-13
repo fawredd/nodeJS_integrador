@@ -1,28 +1,34 @@
 <main id="app">
+    <%
+    console.log("---------- /admin/edit/x PAGE ---------------")
+    console.log("item: " + JSON.stringify(values))
+    %>
     <div class="container admin">
-        <h1>CREAR NUEVO ITEM</h1>
-        <form action="admin/create" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="product_id" value="<%= typeof values != 'undefined' ? values.product_id : '' %>">
+        <h1>EDITAR ITEM</h1>
+        <form
+            action="/admin/create/<%= values.product_id %>?_method=PUT"
+            method="post"
+        >    
             <div class="create__fila">
                 <label for="iCategoria">Categoria</label>
-                <select name="categoria_id" id="categorias" class="">
+                <select name="CategoryId" id="categorias" class="">
                     <option value="2">2</option>
                     <% categorias.forEach(categoria => { %>
                         <option 
-                            value="<%= categoria.categoria_id %>" 
-                            <%= categoria.categoria_id == values.categoria_id ? "selected" : "" %>
+                            value="<%= categoria.id %>" 
+                            <%= categoria.id == values.CategoryId ? "selected" : "" %>
                         >
                         <%= categoria.nombre %>
                         </option>
                         <% }) %>
                 </select>
                 <label for="iLicencia">Licencia</label>
-                <select name="licencia_id" id="ILicencia" class="">
+                <select name="LicenceId id="ILicencia" class="">
                     <option value="""></option>
                     <% licencias.forEach(licencia => { %>
                         <option 
                             value="<%= licencia.id %>" 
-                            <%= licencia.licencia_id == values.licencia_id ? "selected" : "" %>
+                            <%= licencia.id == values.LicenceId ? "selected" : "" %>
                         >
                         <%= licencia.nombre %>
                         </option>
@@ -55,7 +61,7 @@
                 <div>
                     <img
                         width="50"
-                        src="/public/img/<%= values.licence.name %>/producto_<%= values.product_id %>-1.jpg"
+                        src="/public/img/<%= values.licence.nombre %>/producto_<%= values.product_id %>-1.jpg"
                         alt="<%= values.product_name %>"
                     />
                 </div>

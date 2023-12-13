@@ -33,8 +33,8 @@ const sequelize = require("./src/models/connection");
 const {Cart,CartItems} = require("./src/models/cart");
 
 app.use(async (req, res, next) => {
-    res.locals.cartCant = 0;
-    try {
+    res.locals.cartCant = 4;
+/*     try {
         const cart = await Cart.findAll({
             where: {
                 UserId: 1,
@@ -53,7 +53,7 @@ app.use(async (req, res, next) => {
     } catch (error) {
         console.log(error);
         res.status(500).send(error);
-    }
+    }*/
     next();
 });
 
@@ -68,7 +68,9 @@ app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "layouts/layout");
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use(methodOverride("_method"));
 
 app.use(require("./src/routes/mainRoutes"));
@@ -104,7 +106,7 @@ app.use((req, res, next) => {
 const PORT = 3000;
 app.listen(PORT, async () => {
     try {
-        await sequelize.sync({alter:true});
+        await sequelize.sync({alter:false});
     } catch (error) {
         console.log(error);
     }

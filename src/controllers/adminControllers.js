@@ -1,4 +1,3 @@
-const fs = require("fs");
 const path = require("path");
 const sharp = require("sharp");
 
@@ -45,6 +44,8 @@ const adminControllers = {
     }
   },
   adminCreate: async (req, res) => {
+    console.log(`\n------- Ruta /admin/create GET --------`)
+  
     const categorias = await CategoriasModel.findAll(
       {order: [["nombre", "ASC"]],}
     )
@@ -55,18 +56,33 @@ const adminControllers = {
     res.render('pages/admin/create', {categorias: categorias, licencias: licencias, header: 'admin'})
   },
   store: async (req, res) => {
+    console.log(`\n------- Ruta /admin/create POST --------`)
+    console.log("req.body: " + JSON.stringify(req.body))
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
-      return res.render("pages/admin/create", {
-        values: req.body,
-        errors: errors.array(),
-      });
+      try {
+        const categorias = await CategoriasModel.findAll({
+          order: [["nombre", "ASC"]],
+        });
+        const licencias = await LicenciasModel.findAll({
+          order: [["nombre", "ASC"]],
+        });
+        return res.render("pages/admin/create", {
+          categorias,
+          licencias,
+          values: req.body,
+          errors: errors.array(),
+        });
+      } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+      }
     }
     try {
       const producto = await ProductoModel.create(req.body);
 
-      if (req.file) {
-        req.file.foreach((file, indice)=>{
+      if (req.files) {
+        req.files.foreach((file, indice)=>{
           let finalNombre = ''
           if (indice == 0) {
             finalNombre = '-1'
@@ -83,14 +99,92 @@ const adminControllers = {
             );
         })
       }
-      res.redirect("/admin/productos");
+      res.redirect("/admin/");
     } catch (error) {
       console.log(error);
       res.send(error);
     }
   },
-  adminEdit: (req,res) => {
-    res.send('Cargando ruta /admin/edit method GET o PUT')
+  adminEdit: async (req,res) => {
+    console.log(`\n------- Ruta /admin/edit/xx GET --------`)
+    console.log("req.body: " + JSON.stringify(req.body) + "\nreq.params: " + JSON.stringify(req.params))
+    try {
+      const categorias = await CategoriasModel.findAll(
+        {order: [["nombre", "ASC"]],}
+      )
+      const licencias = await LicenciasModel.findAll(
+        {order: [["nombre", "ASC"]],}
+      )
+      const productos = await ProductoModel.findByPk(
+        req.params.id,  
+        {
+          include: LicenciasModel, CategoriasModel 
+        })
+      if (productos) {
+        res.render("pages/admin/edit", { values: productos, categorias, licencias });
+      } else {
+        res.status(404).send("No existe el producto");
+      }
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
+  },
+  adminEditUpdate: async (req,res) => {
+    console.log(`\n------- Ruta /admin/create/edit/x PUT --------`)
+    console.log("req.body: " + JSON.stringify(req.body) + "\nreq.params: " + JSON.stringify(req.params))
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      try {
+        const categorias = await CategoriasModel.findAll({
+          order: [["nombre", "ASC"]],
+        });
+        const licencias = await LicenciasModel.findAll({
+          order: [["nombre", "ASC"]],
+        });
+        return res.render("pages/admin/create", {
+          categorias,
+          licencias,
+          values: req.body,
+          errors: errors.array(),
+        });
+      } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+      }
+    }
+    try {
+      const count = await ProductoModel.update(req.body, {
+        where: {
+          id: req.params.id,
+        },
+      });
+      /*
+      if (req.files) {
+        req.files.foreach((file, indice)=>{
+          let finalNombre = ''
+          if (indice == 0) {
+            finalNombre = '-1'
+          } else {
+            finalNombre = '-box'
+          }
+          sharp(file.buffer)
+            .resize(300)
+            .toFile(
+              path.resolve(
+                __dirname,
+                `../../public/img/${producto.categoria.name}/producto_${producto.id}${filaNombre}.jpg`
+              )
+            );
+        })
+      }
+      */
+      res.redirect("/admin/");
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
+
   },
   adminDelete: (req,res) => res.send('Cargando ruta /admin/delete method DELETE'),
 }

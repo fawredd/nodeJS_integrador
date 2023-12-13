@@ -1,40 +1,25 @@
 <%
-
 let totalItems = items.length
-// Genero un array con los números del 0 al totalItems
-var numeros = Array.from({length: totalItems}, (_, i) => i);
-
-// Elijo un número aleatorio del array y lo elimino
-function elegirItem() {
-  if (numeros.length === 0) {
-    console.log("Ya se han elegido todos los números.");
-    return;
-  }
-  var indice = Math.floor(Math.random() * numeros.length);
-  var numeroElegido = numeros.splice(indice, 1)[0];
-  return numeroElegido
-}
 if (cantidad==0){ cantidad = totalItems}
 for (let i = 0; i <= (cantidad -1); i++ )
 { 
-  itemSeleccionado =  elegirItem();
 %>
 <li class="ul__item glide__slide">
   <article>
-    <a class="ul__articulos" href="<%= baseUrl %>/shop/item/<%= itemSeleccionado %>">
+    <a class="ul__articulos" href="<%= baseUrl %>/item/<%= items[i].product_id %>">
       <picture class="card-item__cover">
-        <img class="card-item__img--front" src="/img/<%= items[itemSeleccionado].img_front %>" alt="<%= items[itemSeleccionado].product_description %>" />
-        <img class="card-item__img--back" src="/img/<%= items[itemSeleccionado].img_back %>" alt="<%= items[itemSeleccionado].product_description %>" />
+        <img class="card-item__img--front" src="/img/<%= items[i].img_front %>" alt="<%= items[i].product_description %>" />
+        <img class="card-item__img--back" src="/img/<%= items[i].img_back %>" alt="<%= items[i].product_description %>" />
       </picture>
       <div class="ul__descripcion">
-        <p><%= items[itemSeleccionado].licence_name%></p>
-        <h4><%= items[itemSeleccionado].product_name%></h4>
-        <p><%= items[itemSeleccionado].product_price%></p>
+        <p><%= items[i].licence_name%></p>
+        <h4><%= items[i].product_name%></h4>
+        <p><%= items[i].product_price%></p>
         <p>
-          <%=`${items[itemSeleccionado].payment} Cuota/s`%>
+          <%=`${items[i].payment} Cuota/s`%>
         </p>
       </div>
-      <span class="articulos__sticker"><%= items[itemSeleccionado].sticker%></span>
+      <span class="articulos__sticker"><%= items[i].sticker%></span>
     </a>
   </article>
 </li>

@@ -45,11 +45,3 @@ if ( !(document.querySelector('.glide') == null ) ){
     }
   ).mount()
 }
-
-if (getSequelizeTypeFromJsonFormat(Storage) !== "undefined"){
-  if (localStorage.getItem("cantCarrito") === null){
-    localStorage.setItem("cantCarrito",0)
-  }
-}else{
-  console.log("LocalStorage no soportado")
-}

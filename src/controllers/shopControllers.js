@@ -1,6 +1,8 @@
 //Importo data temporal
 //const data = require('../data/data')
 const productsModel = require("../models/producto");
+const categoriasModel = require("../models/producto");
+const licenciasModel = require("../models/producto");
 const {Cart, CartItems} = require("../models/cart");
 /* 
 Main Routes:
@@ -38,11 +40,12 @@ const shopControllers = {
     }
   },
   shopItem: async (req, res) => {
+    console.log("------ /shop/item/x GET --------")  
+    console.log("req.params: " + JSON.stringify(req.params))
     try {
-      const productos = await productsModel.findAll({
-        
-      });
-      res.render('pages/shop/item',{items:productos,id:req.params.id, baseUrl: req.baseUrl})
+      const productos = await productsModel.findByPk(req.params.id)
+      const itemsGaleria = await productsModel.findAll()
+      res.render('pages/shop/item',{items:productos, itemsGaleria, baseUrl: req.baseUrl})
 
     } catch (error) {
       console.log(error);

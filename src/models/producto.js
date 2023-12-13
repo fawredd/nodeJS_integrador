@@ -1,14 +1,18 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('./connection')
 
+const Categorias = require("./category");
+const Licencias = require("./licence");
+
 /* Datos producto mostrado en front   
     “product_id”: 1,
-    “licence_name”: “Pokemon”,
-    “category_name”: “Figuras coleccionables”,
+    “licence_id”: 1 - “Pokemon”,
+    “category_id”: 1 - “Figuras coleccionables”,
     “product_name”: “Pidgeotto”,
     “product_description”: “Figura coleccionable pokemon”,
     “product_price”: 1799.99,
-    “dues”: 10,
+    "product_stock": 100,
+    “dues”: 3,
     “product_sku”: “PKM001001”
     “img_front”: ”/img/pokemon/pidgeotto-1.webp”,
     “img_back”: ”/img/pokemon/pidgeotto-box.webp” 
@@ -22,14 +26,6 @@ const Producto = sequelize.define(
         primaryKey: true,
         autoIncrement: true,
         },
-        licence_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        category_name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         product_name: {
             type: DataTypes.STRING,
             allowNull: false    
@@ -40,7 +36,13 @@ const Producto = sequelize.define(
         },
         product_price: {
             type: DataTypes.FLOAT,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 0
+        },
+        product_stock: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 1
         },
         dues: {
             type: DataTypes.INTEGER,
@@ -48,7 +50,8 @@ const Producto = sequelize.define(
         },
         product_sku: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            defaultValue:''
         },
         img_front: {
             type: DataTypes.STRING,
@@ -71,5 +74,8 @@ const Producto = sequelize.define(
         timestamps: true,
     }
 )
+
+Producto.belongsTo(Categorias)
+Producto.belongsTo(Licencias)
 
 module.exports = Producto

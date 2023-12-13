@@ -1,0 +1,27 @@
+<main>
+  <h1>Editar licencia</h1>
+
+  <% if (typeof errors != 'undefined') { %>
+  <ul>
+    <% errors.forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+
+  <form
+    action="/admin/licencias/<%= values.id %>?_method=PUT"
+    method="post"
+  >
+    <div>
+      <label for="nombre">Nombre: </label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        value="<%= typeof values != 'undefined' ? values.nombre : '' %>"
+      />
+    </div>
+    <button type="submit">Guardar</button>
+  </form>
+</main>

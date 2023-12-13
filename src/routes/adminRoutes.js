@@ -37,14 +37,15 @@ Admin Routes:
 - PUT -> /admin/edit/:id
 - DELETE -> /admin/delete/:id
 */
-router.get("/admin", (req,res) => res.redirect('/admin/1'));
-router.get("/admin/create", adminControllers.adminCreate);
 
-router.get("/admin/:page", adminControllers.admin);
+router.get("/create", adminControllers.adminCreate);
+router.post("/create", upload.array(['img_front','img_back']), validations, adminControllers.store);
+router.get("/", (req,res) => res.redirect('/admin/1'));
+router.get("/:page", adminControllers.admin);
 
 /* router.post("/admin/create", upload.single("imagen"), validations, adminControllers.store); */
-router.get("/admin/edit/:id", adminControllers.adminEdit);
-router.put("/admin/edit/:id", upload.single("imagen"), validations, adminControllers.adminEdit);
-router.delete("/admin/delete/:id", adminControllers.adminDelete);
+router.get("/edit/:id", adminControllers.adminEdit);
+router.put("/edit/:id", upload.single("imagen"), validations, adminControllers.adminEdit);
+router.delete("/delete/:id", adminControllers.adminDelete);
 
 module.exports = router;

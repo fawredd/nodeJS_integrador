@@ -1,11 +1,11 @@
-//Importo data temporal
-//const data = require('../data/data')
-
+const fs = require("fs");
 const path = require("path");
 const sharp = require("sharp");
 
 const { validationResult } = require("express-validator");
-const model = require("../models/producto");
+const ProductoModel = require("../models/producto");
+const CategoriasModel = require("../models/category");
+const LicenciasModel = require("../models/licence");
 
 /* 
 Admin Routes:
@@ -29,27 +29,33 @@ const adminControllers = {
         page = 1
       }
       const pageSize = 6;
-      const totalCount = await model.count({});
+      const totalCount = await ProductoModel.count({});
       // Calcular el número total de páginas
       const totalPages = Math.ceil(totalCount / pageSize);
 
-      const productos = await model.findAll({
+      const productos = await ProductoModel.findAll({
         limit: pageSize, // Tamaño de la página
         offset: (page - 1) * pageSize, // Desplazamiento
       });
+
       res.render('pages/admin/admin', {items:productos, page:page, totalPages: totalPages, header: 'admin'})
     } catch (error) {
       console.log(error);
       res.status(500).send(error);
     }
   },
-  adminCreate: (req, res) => {
-      res.render('pages/admin/create', {header: 'admin'})
+  adminCreate: async (req, res) => {
+    const categorias = await CategoriasModel.findAll(
+      {order: [["nombre", "ASC"]],}
+    )
+    const licencias = await LicenciasModel.findAll(
+      {order: [["nombre", "ASC"]],}
+    )
+
+    res.render('pages/admin/create', {categorias: categorias, licencias: licencias, header: 'admin'})
   },
   store: async (req, res) => {
-    console.log(req.body, req.file)
     const errors = validationResult(req)
-    /*
     if (!errors.isEmpty()) {
       return res.render("pages/admin/create", {
         values: req.body,
@@ -57,24 +63,32 @@ const adminControllers = {
       });
     }
     try {
-      const producto = await model.create(req.body);
-      console.log(producto);
+      const producto = await ProductoModel.create(req.body);
+
       if (req.file) {
-        sharp(req.file.buffer)
-          .resize(300)
-          .toFile(
-            path.resolve(
-              __dirname,
-              `../../../public/uploads/productos/producto_${producto.id}.jpg`
-            )
-          );
+        req.file.foreach((file, indice)=>{
+          let finalNombre = ''
+          if (indice == 0) {
+            finalNombre = '-1'
+          } else {
+            finalNombre = '-box'
+          }
+          sharp(file.buffer)
+            .resize(300)
+            .toFile(
+              path.resolve(
+                __dirname,
+                `../../public/img/${producto.categoria.name}/producto_${producto.id}${finañNombre}.jpg`
+              )
+            );
+        })
       }
       res.redirect("/admin/productos");
     } catch (error) {
       console.log(error);
       res.send(error);
     }
- */},
+  },
   adminEdit: (req,res) => {
     res.send('Cargando ruta /admin/edit method GET o PUT')
   },

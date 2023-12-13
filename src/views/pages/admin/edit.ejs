@@ -1,0 +1,77 @@
+<main id="app">
+    <div class="container admin">
+        <h1>CREAR NUEVO ITEM</h1>
+        <form action="admin/create" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="product_id" value="<%= typeof values != 'undefined' ? values.product_id : '' %>">
+            <div class="create__fila">
+                <label for="iCategoria">Categoria</label>
+                <select name="categoria_id" id="categorias" class="">
+                    <option value="2">2</option>
+                    <% categorias.forEach(categoria => { %>
+                        <option 
+                            value="<%= categoria.categoria_id %>" 
+                            <%= categoria.categoria_id == values.categoria_id ? "selected" : "" %>
+                        >
+                        <%= categoria.nombre %>
+                        </option>
+                        <% }) %>
+                </select>
+                <label for="iLicencia">Licencia</label>
+                <select name="licencia_id" id="ILicencia" class="">
+                    <option value="""></option>
+                    <% licencias.forEach(licencia => { %>
+                        <option 
+                            value="<%= licencia.id %>" 
+                            <%= licencia.licencia_id == values.licencia_id ? "selected" : "" %>
+                        >
+                        <%= licencia.nombre %>
+                        </option>
+                    <% }) %>
+                </select>
+            </div>
+            <label for="iNombre">Nombre del producto</label>
+            <input type="text" id="iNombre" name="product_name" value="<%= typeof values != 'undefined' ? values.product_name : '' %>">
+            <textarea name="product_description" id="iDescripcion" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
+            <div class="create__fila">
+                <label for="iSKU">SKU</label>
+                <input type="text" id="iSKU" name="product_sku" value="<%= typeof values != 'undefined' ? values.product_sku : '' %>">
+                <label for="iPrecio">Precio</label>
+                <input type="number" id="iPrecio" name="product_price" value="<%= typeof values != 'undefined' ? values.product_price : '' %>">
+                <label for="iStock">Stock</label>
+                <input type="number" id="iStock" name="product_stock" value="<%= typeof values != 'undefined' ? values.product_stock : '' %>">
+            </div>
+            <div class="create__fila">
+                <label for="iDescuento">Descuento</label>
+                <input type="number" id="descuento" name="iDescuento" placeholder="0%" value="0">
+                <label for="iCuotas">Cuotas</label>
+                <select name="dues" id="iCuotas" class="">
+                    <option value="1" selected>1 cuota</option>
+                    <option value="2">2 cuotas</option>
+                    <option value="3">3 cuotas</option>
+                </select>
+            </div>
+            <label for="img_front">Imagen front</label>
+                <input type="file" name="img_front" id="img_front" accept="image/*">
+                <div>
+                    <img
+                        width="50"
+                        src="/public/img/<%= values.licence.name %>/producto_<%= values.product_id %>-1.jpg"
+                        alt="<%= values.product_name %>"
+                    />
+                </div>
+            <label for="img_front">Imagen back</label>
+                <input type="file" name="img_back" id="img_back" accept="image/*">
+                <div>
+                    <img
+                        width="50"
+                        src="/public/img/<%= values.licence.name %>/producto_<%= values.product_id %>-box.jpg"
+                        alt="<%= values.product_name %> box"                    />
+                </div>
+
+            <div class="create__fila">
+                <button type="submit">Modificar producto</button>
+            </div>
+        </form>
+    </div>
+
+</main>

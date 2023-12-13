@@ -1,46 +1,57 @@
 <main id="app">
     <div class="container admin">
         <h1>CREAR NUEVO ITEM</h1>
-        <form action="admin/create" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="iId" value="">
+        <form action="/admin/create" method="post" enctype="multipart/form-data">
             <div class="create__fila">
                 <label for="iCategoria">Categoria</label>
-                <select name="iCategorias" id="categorias" class="">
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select name="CategoryId" id="categorias" class="">
+                    <option value=""></option>
+                    <% categorias.forEach(categoria => { %>
+                        <option 
+                            value="<%= categoria.id %>" 
+                        >
+                        <%= categoria.nombre %>
+                        </option>
+                        <% }) %>
                 </select>
                 <label for="iLicencia">Licencia</label>
-                <select name="iLicencia" id="licencia" class="">
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select name="LicenceId" id="ILicencia" class="">
+                    <option value="""></option>
+                    <% licencias.forEach(licencia => { %>
+                        <option 
+                            value="<%= licencia.id %>" 
+                        >
+                        <%= licencia.nombre %>
+                        </option>
+                    <% }) %>
                 </select>
             </div>
             <label for="iNombre">Nombre del producto</label>
-            <input type="text" id="nombre" name="iNombre">
-            <textarea name="iDescripcion" id="descripcion" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
+            <input type="text" id="iNombre" name="product_name">
+            <textarea name="product_description" id="iDescripcion" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
             <div class="create__fila">
                 <label for="iSKU">SKU</label>
-                <input type="text" id="SKU" name="iSKU">
+                <input type="text" id="iSKU" name="product_sku">
                 <label for="iPrecio">Precio</label>
-                <input type="number" id="precio" name="iPrecio">
+                <input type="number" id="iPrecio" name="product_price">
                 <label for="iStock">Stock</label>
-                <input type="number" id="stock" name="iStock">
+                <input type="number" id="iStock" name="product_stock">
             </div>
             <div class="create__fila">
                 <label for="iDescuento">Descuento</label>
                 <input type="number" id="descuento" name="iDescuento" placeholder="0%" value="0">
                 <label for="iCuotas">Cuotas</label>
-                <select name="iCuotas" id="cuotas" class="">
+                <select name="dues" id="iCuotas" class="">
                     <option value="1" selected>1 cuota</option>
                     <option value="2">2 cuotas</option>
                     <option value="3">3 cuotas</option>
                 </select>
-                <label for="iStock">Stock</label>
-                <input type="number" id="stock" name="iStock">
             </div>
-            <input type="file" name="imagen" id="imagen" accept="image">
+            <label for="img_front">Imagen front</label>
+            <input type="file" name="img_front" id="img_front" accept="image/*">
+            <label for="img_front">Imagen back</label>
+            <input type="file" name="img_back" id="img_back" accept="image/*">
+            
             <div class="create__fila">
                 <button type="submit">Agregar producto</button>
                 <button type="reset">Limpiar</button>

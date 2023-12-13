@@ -1,0 +1,45 @@
+<main>
+  <h1>Listado de licencias</h1>
+
+  <a href="/admin/licencias/create">Crear</a>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% licencias.forEach(licencia => { %>
+      <tr>
+        <td><%= licencia.id %></td>
+        <td><%= licencia.nombre %></td>
+        <td>
+          <a href="/admin/licencias/<%= licencia.id %>/edit">Editar</a>
+          |
+          <form
+            class="form-delete"
+            style="display: inline-block"
+            action="/admin/licencias/<%= licencia.id %>?_method=DELETE"
+            method="post"
+          >
+            <button type="submit">Borrar</button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</main>
+<script>
+  document.addEventListener("submit", (event) => {
+    if (event.target.classList.contains("form-delete")) {
+      event.preventDefault();
+      if (confirm("¿Esta seguro?")) {
+        event.target.submit();
+      }
+    }
+  });
+</script>

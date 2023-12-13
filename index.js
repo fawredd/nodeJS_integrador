@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 // Inicializo el server
 const express = require("express");
 const app = express();
@@ -28,7 +29,9 @@ const expressLayouts = require("express-ejs-layouts");
 const methodOverride = require("method-override");
 
 const sequelize = require("./src/models/connection");
+
 const {Cart,CartItems} = require("./src/models/cart");
+
 app.use(async (req, res, next) => {
     res.locals.cartCant = 0;
     try {
@@ -56,10 +59,11 @@ app.use(async (req, res, next) => {
 
 //Defino el static path
 app.use(express.static(path.join(__dirname, "/public")));
+
 //Defino que voy a utlizar ejs como view engine
 app.set("views", path.join(__dirname, "/src/views"));
 app.set("view engine", "ejs");
-console.debug (__dirname)
+
 //Indico donde se encuentran los layouts
 app.use(expressLayouts);
 app.set("layout", "layouts/layout");
@@ -67,12 +71,31 @@ app.set("layout", "layouts/layout");
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
-
-app.use(require("./src/routes/authRoutes"));
 app.use(require("./src/routes/mainRoutes"));
-app.use(require("./src/routes/shopRoutes"));
-app.use(isLogin,require("./src/routes/adminRoutes"));
-app.use(require("./src/routes/authRoutes"));
+app.use(
+    "/shop",
+    require("./src/routes/shopRoutes")
+);
+app.use(
+    "/admin/categorias",
+    isLogin,
+    require("./src/routes/categoriasRoutes")
+);
+app.use(
+    "/admin/licencias",
+    isLogin,
+    require("./src/routes/licenciasRoutes")
+);
+app.use(
+    "/admin",
+    isLogin,
+    require("./src/routes/adminRoutes")
+);
+app.use(
+    "/auth",
+    require("./src/routes/authRoutes")
+);
+
 // Middleware para manejar el error 404
 app.use((req, res, next) => {
     res.status(404).send('Recurso no encontrado');
@@ -81,7 +104,7 @@ app.use((req, res, next) => {
 const PORT = 3000;
 app.listen(PORT, async () => {
     try {
-        await sequelize.sync({alter:false});
+        await sequelize.sync({alter:true});
     } catch (error) {
         console.log(error);
     }

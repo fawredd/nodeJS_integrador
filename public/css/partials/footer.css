@@ -11,9 +11,6 @@ footer nav{
     justify-content: space-between;
     align-items: center;
 }
-footer nav ul li{
-    margin-bottom: var(--espacio-8);
-}
 footer p{
     padding:var(--espacio-12) 0;
     font-size: var(--fuente-size-20);
@@ -21,7 +18,6 @@ footer p{
 }
 
 footer a{
-    font-size:var(--fuente-size-20);
     text-transform: uppercasew;
 }
 

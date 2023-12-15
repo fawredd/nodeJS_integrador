@@ -2,25 +2,25 @@
     <section>
         <nav>
             <ul>
-                <li>
+                <li class="menu__item resaltado">
                     <a href="/shop">SHOP</a>
                 </li>
                 <% if (userId){ %>
-                    <li> 
+                    <li class="menu__item resaltado"> 
                         <a href="/logout">LOGOUT</a>    
                     </li>
-                    <li> 
+                    <li class="menu__item resaltado"> 
                         <a href="/admin">ADMIN</a>    
                     </li>
                     <% } else { %>
-                    <li>
+                    <li class="menu__item resaltado">
                         <a href="/register">REGISTRARSE</a>
                     </li>
-                    <li>
+                    <li class="menu__item resaltado">
                         <a href="/login">LOGIN</a>
                     </li>
                 <% } %>
-                <li>
+                <li class="menu__item">
                     <a href="/contact">CONTACTO</a>
                 </li>
             </ul>

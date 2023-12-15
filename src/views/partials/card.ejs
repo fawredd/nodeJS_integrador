@@ -8,8 +8,8 @@ for (let i = 0; i <= (cantidad -1); i++ )
   <article>
     <a class="ul__articulos" href="<%= baseUrl %>/item/<%= items[i].product_id %>">
       <picture class="card-item__cover">
-        <img class="card-item__img--front" src="/img/<%= items[i].img_front %>" alt="<%= items[i].product_description %>" />
-        <img class="card-item__img--back" src="/img/<%= items[i].img_back %>" alt="<%= items[i].product_description %>" />
+        <img class="card-item__img--front" src="/img<%= items[i].img_front %>" alt="<%= items[i].product_description %>" />
+        <img class="card-item__img--back" src="/img<%= items[i].img_back %>" alt="<%= items[i].product_description %>" />
       </picture>
       <div class="ul__descripcion">
         <p><%= items[i].licence_name%></p>

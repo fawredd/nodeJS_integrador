@@ -45,3 +45,20 @@ if ( !(document.querySelector('.glide') == null ) ){
     }
   ).mount()
 }
+
+function changeMenu(){
+  var menuH = document.querySelector('.menu__h')
+  menuH.classList.toggle('active')
+  var menuList = document.querySelector('.navbar__menu')
+  menuList.classList.toggle('navbar__menuFlex')
+  menuList.classList.toggle('navbar__menuNone')
+}
+
+window.addEventListener('resize',() =>{
+  var menuH = document.querySelector('.menu__h')
+  menuH.classList.remove('active')
+  var menuList = document.querySelector('.navbar__menu')
+  menuList.classList.toggle('navbar__menuFlex')
+  menuList.classList.remove('navbar__menuBlock')
+})
+

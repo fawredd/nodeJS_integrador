@@ -40,6 +40,6 @@ router.get("/:page", adminControllers.admin);
 router.get("/edit/:id", adminControllers.adminEdit);
 router.put("/edit/:id", validations, adminControllers.adminEditUpdate);
 //router.put("/edit/:id", upload.single("imagen"), validations, adminControllers.adminEdit);
-router.delete("/delete/:id", adminControllers.adminDelete);
+router.delete("/:id", adminControllers.adminDelete);
 
 module.exports = router;

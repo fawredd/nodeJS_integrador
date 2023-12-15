@@ -80,7 +80,7 @@ const adminControllers = {
     }
     try {
       const producto = await ProductoModel.create(req.body);
-
+      /*
       if (req.files) {
         req.files.foreach((file, indice)=>{
           let finalNombre = ''
@@ -94,11 +94,12 @@ const adminControllers = {
             .toFile(
               path.resolve(
                 __dirname,
-                `../../public/img/${producto.categoria.name}/producto_${producto.id}${finañNombre}.jpg`
+                `../../public/img/${producto.categoria.name}/producto_${producto.id}${finalNombre}.jpg`
               )
             );
         })
       }
+      */
       res.redirect("/admin/");
     } catch (error) {
       console.log(error);
@@ -142,7 +143,7 @@ const adminControllers = {
         const licencias = await LicenciasModel.findAll({
           order: [["nombre", "ASC"]],
         });
-        return res.render("pages/admin/create", {
+        return res.render("pages/admin/edit", {
           categorias,
           licencias,
           values: req.body,
@@ -156,7 +157,7 @@ const adminControllers = {
     try {
       const count = await ProductoModel.update(req.body, {
         where: {
-          id: req.params.id,
+          product_id: req.params.id,
         },
       });
       /*
@@ -186,7 +187,47 @@ const adminControllers = {
     }
 
   },
-  adminDelete: (req,res) => res.send('Cargando ruta /admin/delete method DELETE'),
+  adminDelete: async (req,res) => {
+    console.log(`\n------- Ruta /x DELETE --------`)
+    console.log("req.body: " + JSON.stringify(req.body) + "\nreq.params: " + JSON.stringify(req.params))
+    try {
+      const destroyed = await ProductoModel.destroy({
+        where: {
+          product_id: req.params.id,
+        },
+      });
+      /*
+      if (destroyed == 1 && 0) {
+        fs.unlink(
+          path.resolve(
+            __dirname,
+            `../../../public/img/ /producto_${req.params.id}-1.jpg`
+          ),
+          (error) => {
+            if (error) {
+              console.log(error);
+            }
+          }
+        );
+        fs.unlink(
+          path.resolve(
+            __dirname,
+            `../../../public/img/ /producto_${req.params.id}-box.jpg`
+          ),
+          (error) => {
+            if (error) {
+              console.log(error);
+            }
+          }
+        );
+      }
+      */
+      res.redirect("/admin/");
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
+  }
 }
 
 

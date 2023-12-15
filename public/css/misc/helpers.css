@@ -46,14 +46,8 @@ canvas{
     height:100vh;
     pointer-events: none;
 }
-
-@keyframes draw {
-    100% {
-        opacity:1;
-    }
-
-    0% {
-        opacity:0;
-    }
-    
+.resaltado:hover {
+    background-color: var(--color-rojo-90);
+    color:white;
+    transition: all 0.3s ease-in-out;
 }

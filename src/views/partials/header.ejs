@@ -1,30 +1,37 @@
 <header>
 <nav class="navbar container">
-    <picture class="navbar__logo">
-        <a href="/">
-            <img src="/img/branding/logo_light_horizontal.svg" alt="Isologotipo de la Marca Funkoshop">
-        </a>
-    </picture>
-    <ul class="navbar__menu">
-        <li class="menu__item menu__item__submenu">
+    <div style="display:flex;flex-direction: row;align-items: center;">
+        <picture class="navbar__logo">
+            <a href="/">
+                <img src="/img/branding/logo_light_horizontal.svg" alt="Isologotipo de la Marca Funkoshop">
+            </a>
+        </picture>
+        <div class="menu__h" onclick="changeMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <ul class="navbar__menuFlex navbar__menu">
+        <li class="menu__item menu__item__submenu resaltado">
             <a href="/shop">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
         </li>
-        <li class="menu__item">
+        <li class="menu__item resaltado">
             <a href="/contact">CONTACTO</a>
         </li>
-        <li class="menu__item">
+        <li class="menu__item resaltado">
             <% if (userId){ %>
                 <a href="/auth/logout">LOGOUT</a>    
             <% } else { %>
                 <a href="/auth/login">LOGIN</a>
             <% } %>
         </li>
-        <li class="menu__item">
+        <li class="menu__item resaltado">
             <a class="carrito" href="/shop/cart">
                 <img src="/img/icons/cart-icon.svg" alt="ícono de carrito">
                 <span class="cantidadCarrito" id="itemsEnCarrito"><%=cartCant%></span>
             </a>
         </li>
     </ul>
-    </nav>
+</nav>
 </header>

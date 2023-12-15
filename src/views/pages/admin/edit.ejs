@@ -6,7 +6,7 @@
     <div class="container admin">
         <h1>EDITAR ITEM</h1>
         <form
-            action="/admin/create/<%= values.product_id %>?_method=PUT"
+            action="/admin/edit/<%= values.product_id %>?_method=PUT"
             method="post"
         >    
             <div class="create__fila">
@@ -23,7 +23,7 @@
                         <% }) %>
                 </select>
                 <label for="iLicencia">Licencia</label>
-                <select name="LicenceId id="ILicencia" class="">
+                <select name="LicenceId" id="ILicencia" class="">
                     <option value="""></option>
                     <% licencias.forEach(licencia => { %>
                         <option 
@@ -37,7 +37,7 @@
             </div>
             <label for="iNombre">Nombre del producto</label>
             <input type="text" id="iNombre" name="product_name" value="<%= typeof values != 'undefined' ? values.product_name : '' %>">
-            <textarea name="product_description" id="iDescripcion" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
+            <textarea name="product_description" id="iDescripcion" cols="30" rows="10" placeholder="Descripción del producto"><%= typeof values != 'undefined' ? values.product_description : '' %></textarea>
             <div class="create__fila">
                 <label for="iSKU">SKU</label>
                 <input type="text" id="iSKU" name="product_sku" value="<%= typeof values != 'undefined' ? values.product_sku : '' %>">
@@ -61,7 +61,7 @@
                 <div>
                     <img
                         width="50"
-                        src="/public/img/<%= values.licence.nombre %>/producto_<%= values.product_id %>-1.jpg"
+                        src="/img/<%= values.Licence.nombre.replace(/ /g,'-').toLowerCase() %>/producto_<%= values.product_id %>-1.jpg"
                         alt="<%= values.product_name %>"
                     />
                 </div>
@@ -70,8 +70,8 @@
                 <div>
                     <img
                         width="50"
-                        src="/public/img/<%= values.licence.name %>/producto_<%= values.product_id %>-box.jpg"
-                        alt="<%= values.product_name %> box"                    />
+                        src="/img/<%= values.Licence.nombre.replace(/ /g, '-').toLowerCase() %>/producto_<%= values.product_id %>-box.jpg"
+                        alt="<%= values.product_name %> box"/>
                 </div>
 
             <div class="create__fila">

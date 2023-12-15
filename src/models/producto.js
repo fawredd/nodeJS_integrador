@@ -31,7 +31,7 @@ const Producto = sequelize.define(
             allowNull: false    
         },
         product_description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         product_price: {
@@ -55,11 +55,13 @@ const Producto = sequelize.define(
         },
         img_front: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue:'/img/default-1.jpg'
         },
         img_back: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue:'/img/default-box.jpg'
         },
         payment: {
             type: DataTypes.INTEGER,

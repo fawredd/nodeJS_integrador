@@ -2,6 +2,19 @@
     <%
     console.log("---------- /admin/edit/x PAGE ---------------")
     console.log("item: " + JSON.stringify(values))
+
+    if (typeof errors != 'undefined') {
+    %>
+            <ul>
+                <% errors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            </ul>
+    <%
+        }
+    if (typeof values.product_id == 'undefined') {
+        values.product_id = id
+    }
     %>
     <div class="container admin">
         <h1>EDITAR ITEM</h1>
@@ -10,20 +23,22 @@
             method="post"
         >    
             <div class="create__fila">
-                <label for="iCategoria">Categoria</label>
-                <select name="CategoryId" id="categorias" class="">
-                    <option value="2">2</option>
+                <label for="CategoryId">Categoria</label>
+                <select name="CategoryId" id="CategoryId" class="">
+                    <option value=""></option>
                     <% categorias.forEach(categoria => { %>
                         <option 
                             value="<%= categoria.id %>" 
+                            <% if (values.CategoryId){ %>
                             <%= categoria.id == values.CategoryId ? "selected" : "" %>
+                            <% } %>
                         >
                         <%= categoria.nombre %>
                         </option>
                         <% }) %>
                 </select>
-                <label for="iLicencia">Licencia</label>
-                <select name="LicenceId" id="ILicencia" class="">
+                <label for="LicenceId">Licencia</label>
+                <select name="LicenceId" id="LicenceId" class="">
                     <option value="""></option>
                     <% licencias.forEach(licencia => { %>
                         <option 
@@ -59,21 +74,15 @@
             <label for="img_front">Imagen front</label>
                 <input type="file" name="img_front" id="img_front" accept="image/*">
                 <div>
+                    <% if (typeof values.Licence?.nombre != 'undefined'){ %>
                     <img
                         width="50"
                         src="/img/<%= values.Licence.nombre.replace(/ /g,'-').toLowerCase() %>/producto_<%= values.product_id %>-1.jpg"
                         alt="<%= values.product_name %>"
                     />
+                    <% } %>
                 </div>
-            <label for="img_front">Imagen back</label>
-                <input type="file" name="img_back" id="img_back" accept="image/*">
-                <div>
-                    <img
-                        width="50"
-                        src="/img/<%= values.Licence.nombre.replace(/ /g, '-').toLowerCase() %>/producto_<%= values.product_id %>-box.jpg"
-                        alt="<%= values.product_name %> box"/>
-                </div>
-
+ 
             <div class="create__fila">
                 <button type="submit">Modificar producto</button>
             </div>

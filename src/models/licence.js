@@ -1,12 +1,12 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("./connection");
+const { DataTypes } = require('sequelize')
+const sequelize = require('./connection')
 
-const Licence = sequelize.define("Licence", {
+const Licence = sequelize.define('Licence', {
   nombre: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
-  },
-});
+    unique: true
+  }
+})
 
-module.exports = Licence;
+module.exports = Licence

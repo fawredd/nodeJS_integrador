@@ -1,104 +1,104 @@
-const { validationResult } = require("express-validator");
+const { validationResult } = require('express-validator')
 
-const model = require("../models/category");
+const model = require('../models/category')
 
 const index = async (req, res) => {
   try {
-    const categorias = await model.findAll();
+    const categorias = await model.findAll()
     // console.log(categorias);
-    res.render("pages/admin/categorias/index", { categorias });
+    res.render('pages/admin/categorias/index', { categorias })
   } catch (error) {
-    console.log("Controller index en ruta categorias\n" + error);
-    res.status(500).send(error);
+    console.log('Controller index en ruta categorias\n' + error)
+    res.status(500).send(error)
   }
-};
+}
 
 const create = (req, res) => {
-  res.render("pages/admin/categorias/create");
-};
+  res.render('pages/admin/categorias/create')
+}
 
 const store = async (req, res) => {
-  console.log(req.body);
+  console.log(req.body)
 
-  const errors = validationResult(req);
+  const errors = validationResult(req)
 
   if (!errors.isEmpty()) {
-    return res.render("pages/admin/categorias/create", {
+    return res.render('pages/admin/categorias/create', {
       values: req.body,
-      errors: errors.array(),
-    });
+      errors: errors.array()
+    })
   }
 
   try {
-    const categoria = await model.create(req.body);
+    const categoria = await model.create(req.body)
     // console.log(categoria);
 
-    res.redirect("/admin/categorias");
+    res.redirect('/admin/categorias')
   } catch (error) {
-    console.log(error);
-    res.send(error);
+    console.log(error)
+    res.send(error)
   }
-};
+}
 
 const edit = async (req, res) => {
   try {
-    const categoria = await model.findByPk(req.params.id);
+    const categoria = await model.findByPk(req.params.id)
 
     if (categoria) {
-      res.render("pages/admin/categorias/edit", { values: categoria });
+      res.render('pages/admin/categorias/edit', { values: categoria })
     } else {
-      res.status(404).send("No existe el categoria");
+      res.status(404).send('No existe el categoria')
     }
   } catch (error) {
-    console.log(error);
-    res.send(error);
+    console.log(error)
+    res.send(error)
   }
-};
+}
 
 const update = async (req, res) => {
-  console.log(req.params, req.body);
+  console.log(req.params, req.body)
 
-  const errors = validationResult(req);
+  const errors = validationResult(req)
 
   if (!errors.isEmpty()) {
-    return res.render("pages/admin/categorias/edit", {
+    return res.render('pages/admin/categorias/edit', {
       values: { ...req.params, ...req.body },
-      errors: errors.array(),
-    });
+      errors: errors.array()
+    })
   }
 
   try {
     const count = await model.update(req.body, {
       where: {
-        id: req.params.id,
-      },
-    });
+        id: req.params.id
+      }
+    })
     // console.log(count);
 
-    res.redirect("/admin/categorias");
+    res.redirect('/admin/categorias')
   } catch (error) {
-    console.log(error);
-    res.send(error);
+    console.log(error)
+    res.send(error)
   }
-};
+}
 
 const destroy = async (req, res) => {
-  console.log(req.params);
+  console.log(req.params)
 
   try {
     const destroyed = await model.destroy({
       where: {
-        id: req.params.id,
-      },
-    });
+        id: req.params.id
+      }
+    })
     // console.log(destroyed);
 
-    res.redirect("/admin/categorias");
+    res.redirect('/admin/categorias')
   } catch (error) {
-    console.log(error);
-    res.send(error);
+    console.log(error)
+    res.send(error)
   }
-};
+}
 
 module.exports = {
   index,
@@ -106,5 +106,5 @@ module.exports = {
   store,
   edit,
   update,
-  destroy,
-};
+  destroy
+}

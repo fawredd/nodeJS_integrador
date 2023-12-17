@@ -28,7 +28,7 @@
                     for (item of items) { 
                     %>
                     <tr class="listado__item">
-                        <td><a href="/item/<%= items.product_id %>"><%=  item.product_id %></a></td>
+                        <td><a href="/shop/item/<%= item.product_id %>"><%=  item.product_id %></a></td>
                         <td><%=  item.product_sku %></td>
                         <td><%=  item.product_name %></td>
                         <td><%=  item.licence_name %></td>
@@ -40,8 +40,9 @@
                                     style="display: inline-block"
                                     action="/admin/<%= item.product_id %>?_method=DELETE"
                                     method="post"
+                                    id="formElimina"
                                 >
-                                    <button class="listado__item--button" type="submit"><iconify-icon icon="ph:trash" width="33" class="item__options--trash"></iconify-icon></button>
+                                    <button class="listado__item--button" type="submit" id="botonElimina"><iconify-icon icon="ph:trash" width="33" class="item__options--trash"></iconify-icon></button>
                                 </form>
                             </span>
                         </td>

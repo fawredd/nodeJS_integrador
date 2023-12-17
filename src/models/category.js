@@ -1,12 +1,12 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("./connection");
+const { DataTypes } = require('sequelize')
+const sequelize = require('./connection')
 
-const Category = sequelize.define("Category", {
+const Category = sequelize.define('Category', {
   nombre: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
-  },
-});
+    unique: true
+  }
+})
 
-module.exports = Category;
+module.exports = Category

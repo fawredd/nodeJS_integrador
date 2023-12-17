@@ -10,16 +10,8 @@
     max-width: 372px;
     min-width: 200px;
 }
-
-.navbar__menuNone{
-    display:none;
-    transition: all 0.3s ease-in-out;
-}
-.navbar__menuFlex{
-    display:flex;
-    transition: all 0.3s ease-in-out;
-}
 .navbar__menu{
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: var(--espacio-12);

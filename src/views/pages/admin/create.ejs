@@ -8,10 +8,10 @@
                 <% }) %>
             </ul>
         <% 
+        } 
         console.log("------ create.ejs -------------")
-        console.log("values: " + JSON.stringify(values))
-        } %>
-        <form action="/admin/create" method="post">
+        %>
+        <form action="/admin/create" method="post" enctype="multipart/form-data">
             <div class="create__fila">
                 <label for="CategoryId">Categoria</label>
                 <select name="CategoryId" id="CategoryId" class="">
@@ -19,9 +19,10 @@
                     <% categorias.forEach(categoria => { %>
                         <option 
                             value="<%= categoria.id %>" 
-                            <% if (categoria.id == values.CategoryId) { %>
+                            <%  if ( typeof values != 'undefined'){
+                                if (categoria.id == values.CategoryId) { %>
                                 selected
-                            <% } %>
+                            <% }} %>
                         >
                         <%= categoria.nombre %>
                         </option>
@@ -29,13 +30,14 @@
                 </select>
                 <label for="LicenceId">Licencia</label>
                 <select name="LicenceId" id="LicenceId" class="">
-                    <option value="""></option>
+                    <option value=""></option>
                     <% licencias.forEach(licencia => { %>
                         <option 
                             value="<%= licencia.id %>" 
-                            <% if (licencia.id == values.LicenceId) { %>
+                            <% if (typeof values != 'undefined') {
+                                if (licencia.id == values.LicenceId) { %>
                                 selected
-                            <% } %>
+                            <% }} %>
                         >
                         <%= licencia.nombre %>
                         </option>
@@ -65,8 +67,8 @@
             </div>
             <label for="img_front">Imagen front</label>
             <input type="file" name="img_front" id="img_front" accept="image/*">
-            <label for="img_front">Imagen back</label>
-            <input type="file" name="img_back" id="img_back" accept="image/*">
+            <!-- <label for="img_front">Imagen back</label>
+            <input type="file" name="img_back" id="img_back" accept="image/*"> -->
             
             <div class="create__fila">
                 <button type="submit">Agregar producto</button>

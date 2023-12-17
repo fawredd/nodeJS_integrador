@@ -1,34 +1,34 @@
 // Defino funciones para eventos de objetos propios
 const sumaCantidad = (button) => {
-    const input_cantidad = button.parentNode.parentNode.querySelector('#input_cantidad');
-    let cantidad = Number(input_cantidad.value)
-    cantidad++
-    input_cantidad.value = cantidad
-    console.log("Aumento a " + input_cantidad.value)
+  const input_cantidad = button.parentNode.parentNode.querySelector('#input_cantidad')
+  let cantidad = Number(input_cantidad.value)
+  cantidad++
+  input_cantidad.value = cantidad
+  console.log('Aumento a ' + input_cantidad.value)
 }
 
 const restaCantidad = (button) => {
-    const input_cantidad = button.parentNode.parentNode.querySelector('#input_cantidad');
-    let cantidad = Number(input_cantidad.value)
-    if(cantidad>=1) {
-        cantidad -= 1
-    }
-    input_cantidad.value = cantidad
-    console.log("Disminuye a " + input_cantidad.value)
+  const input_cantidad = button.parentNode.parentNode.querySelector('#input_cantidad')
+  let cantidad = Number(input_cantidad.value)
+  if (cantidad >= 1) {
+    cantidad -= 1
+  }
+  input_cantidad.value = cantidad
+  console.log('Disminuye a ' + input_cantidad.value)
 }
 const verificaCantidad = (cual) => {
-  const input_cantidad = cual.parentNode.querySelector('#input_cantidad');
-  let cantidad = Number(input_cantidad.value)
-  if(cantidad>=1) {
+  const input_cantidad = cual.parentNode.querySelector('#input_cantidad')
+  const cantidad = Number(input_cantidad.value)
+  if (cantidad >= 1) {
     input_cantidad.value = cantidad.toFixed(0)
   } else {
     input_cantidad.value = 0
   }
-  console.log("Se establece a " + input_cantidad.value)
+  console.log('Se establece a ' + input_cantidad.value)
 }
 
-//Inicializo el slider Glide
-if ( !(document.querySelector('.glide') == null ) ){
+// Inicializo el slider Glide
+if (!(document.querySelector('.glide') == null)) {
   new Glide('.glide',
     {
       type: 'carousel',
@@ -46,19 +46,34 @@ if ( !(document.querySelector('.glide') == null ) ){
   ).mount()
 }
 
-function changeMenu(){
-  var menuH = document.querySelector('.menu__h')
+// MENU NAVBAR RESPONSIVE
+function changeMenu () {
+  const menuH = document.querySelector('.menu__h')
   menuH.classList.toggle('active')
-  var menuList = document.querySelector('.navbar__menu')
-  menuList.classList.toggle('navbar__menuFlex')
-  menuList.classList.toggle('navbar__menuNone')
+  const menuList = document.querySelector('.navbar__menu')
+  if (menuList.style.display != 'flex'){
+    menuList.style.display = 'flex'
+  } else {
+    menuList.style.display = 'none'
+  }
 }
-
-window.addEventListener('resize',() =>{
-  var menuH = document.querySelector('.menu__h')
+window.addEventListener('resize', () => {
+  const menuH = document.querySelector('.menu__h')
   menuH.classList.remove('active')
-  var menuList = document.querySelector('.navbar__menu')
-  menuList.classList.toggle('navbar__menuFlex')
-  menuList.classList.remove('navbar__menuBlock')
+  const menuList = document.querySelector('.navbar__menu')
+  menuList.removeAttribute("style");
 })
 
+// CONFIRMA ELIMINACION DE PRODUCTO
+document.getElementById('botonElimina').addEventListener('click', function (event) {
+  event.preventDefault() // Evitar el envío del formulario por defecto
+
+  const result = confirm('¿Estás seguro de que deseas continuar?')
+
+  if (result) {
+    // Continuar con el envío del formulario
+    document.getElementById('formElimina').submit()
+  } else {
+    // Cancelar el envío del formulario
+  }
+})

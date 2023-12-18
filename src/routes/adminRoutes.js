@@ -38,8 +38,8 @@ router.get('/', (req, res) => res.redirect('/admin/1'))
 router.get('/:page', adminControllers.admin)
 
 router.get('/edit/:id', adminControllers.adminEdit)
-router.put('/edit/:id', validations, adminControllers.adminEditUpdate)
-// router.put("/edit/:id", upload.single("imagen"), validations, adminControllers.adminEdit);
+//router.put('/edit/:id', validations, adminControllers.adminEditUpdate)
+router.put("/edit/:id", upload.single("img_front"), validations, adminControllers.adminEditUpdate);
 router.delete('/:id', adminControllers.adminDelete)
 
 module.exports = router

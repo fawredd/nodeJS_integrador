@@ -1,9 +1,11 @@
-<main>
+<main class="container">
+  <div class="admin" style="padding:24px;align-items: center;">
+  <div class="__title">
   <h1>Listado de licencias</h1>
+  </div>
+  <a class="a__boton" href="/admin/licencias/create">Crear</a>
 
-  <a href="/admin/licencias/create">Crear</a>
-
-  <table>
+  <table class="__tables">
     <thead>
       <tr>
         <th>#</th>
@@ -17,7 +19,7 @@
         <td><%= licencia.id %></td>
         <td><%= licencia.nombre %></td>
         <td>
-          <a href="/admin/licencias/<%= licencia.id %>/edit">Editar</a>
+          <a class="a__boton" href="/admin/licencias/<%= licencia.id %>/edit">Editar</a>
           |
           <form
             class="form-delete"
@@ -25,13 +27,14 @@
             action="/admin/licencias/<%= licencia.id %>?_method=DELETE"
             method="post"
           >
-            <button type="submit">Borrar</button>
+            <button class="a__boton" type="submit">Borrar</button>
           </form>
         </td>
       </tr>
       <% }) %>
     </tbody>
   </table>
+  </div>
 </main>
 <script>
   document.addEventListener("submit", (event) => {

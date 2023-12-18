@@ -73,6 +73,33 @@ const shopControllers = {
       console.log(error)
       res.status(500).send(error)
     }
+  },
+  cartStore: async (req, res) => {
+    console.log("------ /shop/cart/:id POST")
+    try {
+      console.log(JSON.stringify(req.body))
+      const newCart = await Cart.create(req.body)
+      console.log("Agregado al cart:" + JSON.stringify(newCart))
+      const cart = await Cart.findAll({
+        where: {
+          UserId: 1
+        },
+        include: [
+          {
+            model: CartItems,
+            include: [
+              {
+                model: productsModel
+              }
+            ]
+          }
+        ]
+      })
+      res.render('pages/shop/cart', { cart, baseUrl: req.baseUrl })
+    } catch (error) {
+      console.log(error)
+      res.status(500).send(error)
+    }
   }
 }
 

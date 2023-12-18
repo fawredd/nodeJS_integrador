@@ -12,7 +12,7 @@ Shop Routes:
 */
 router.get('/', (req, res) => res.redirect('/shop/1'))
 router.get('/cart', shopControllers.cart)
-router.post('/cart', shopControllers.cart)
+router.post('/cart/:id', shopControllers.cartStore)
 router.get('/item/:id', shopControllers.shopItem)
 router.post('/item/:id/add', shopControllers.shopItem)
 

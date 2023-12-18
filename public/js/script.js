@@ -1,5 +1,6 @@
 // Defino funciones para eventos de objetos propios
-const sumaCantidad = (button) => {
+const sumaCantidad = (e,button) => {
+  e.preventDefault() // Evitar el envío del formulario por defecto
   const input_cantidad = button.parentNode.parentNode.querySelector('#input_cantidad')
   let cantidad = Number(input_cantidad.value)
   cantidad++
@@ -7,7 +8,8 @@ const sumaCantidad = (button) => {
   console.log('Aumento a ' + input_cantidad.value)
 }
 
-const restaCantidad = (button) => {
+const restaCantidad = (e,button) => {
+  e.preventDefault() // Evitar el envío del formulario por defecto
   const input_cantidad = button.parentNode.parentNode.querySelector('#input_cantidad')
   let cantidad = Number(input_cantidad.value)
   if (cantidad >= 1) {

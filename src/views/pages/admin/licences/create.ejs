@@ -1,6 +1,8 @@
-<main>
+<main class="container">
+  <div class="admin" style="padding:24px;align-items: center;">
+  <div class="__title">
   <h1>Crear licencia</h1>
-
+  </div>
   <% if (typeof errors != 'undefined') { %>
   <ul>
     <% errors.forEach(error => { %>
@@ -9,7 +11,7 @@
   </ul>
   <% } %>
 
-  <form action="/admin/licencias" method="post">
+  <form class="__form" action="/admin/licencias" method="post">
     <div>
       <label for="nombre">Nombre: </label>
       <input
@@ -23,4 +25,5 @@
     </div>
     <button type="submit">Guardar</button>
   </form>
+  </div>
 </main>

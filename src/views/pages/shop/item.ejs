@@ -15,8 +15,16 @@
                 <p class="desc__alt"><%= items.product_description %></p>
                 <p class="desc__price"><%= items.product_price %></p>
                 <div class="datosCompra">
-                    <%- include('../../partials/cantidad',{cantidad: 0} ) %>
-                    <button class="agregarAlCarrito">Agregar al carrito</button>
+                    <form
+                        action="/shop/cart/<%= items.product_id %>"
+                        method="post"
+                        style="display:flex; column-gap: 12px;"
+                    >
+                        <%- include('../../partials/cantidad',{cantidad: 0} ) %>
+                        <input type="hidden" name="UserId" id="UserId" value="<%= userId %>">
+                        <input type="hidden" name="ProductoProductId" id="ProductoProductId " value="<%= items.product_id %>">
+                        <button class="agregarAlCarrito" type="submit">Agregar al carrito</button>
+                    </form>
                 </div>
                 <div class="metodosDePago">
                     <p>Ver metodos de pago</p>

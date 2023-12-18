@@ -1,5 +1,8 @@
-<main>
-  <h1>Crear categoría</h1>
+<main class="container">
+  <div class="admin" style="padding:24px;align-items: center;">
+  <div class="__title">
+    <h1>Crear categoría</h1>
+  </div>
 
   <% if (typeof errors != 'undefined') { %>
   <ul>
@@ -9,8 +12,8 @@
   </ul>
   <% } %>
 
-  <form action="/admin/categorias" method="post">
-    <div>
+  <form action="/admin/categorias" method="post" class="__form">
+    <div class="__fila">
       <label for="nombre">Nombre: </label>
       <input
         type="text"
@@ -23,4 +26,5 @@
     </div>
     <button type="submit">Guardar</button>
   </form>
+  </div>
 </main>

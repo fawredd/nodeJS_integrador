@@ -37,13 +37,10 @@
 .aside_precio_input > input{
     max-width: 4ch;
 }
-.aside__filtros label{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 5px;
+.aside label{
+    font-size: var(--fuente-size-18);
 }
-.aside__filtros li{
+.aside li{
     margin-bottom: 5px;
 }
 /* fin aside */
@@ -54,3 +51,4 @@
     justify-content: left;
     column-gap: var(--espacio-24);
 }
+

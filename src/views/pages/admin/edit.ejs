@@ -22,10 +22,10 @@
     %>
 
     <form
+        class="create__form"
         action="/admin/edit/<%= values.product_id %>?_method=PUT"
         method="post"
         enctype="multipart/form-data"
-        class="create__form"
     >    
         <div class="create__fila">
             <label for="CategoryId">Categoria</label>
@@ -112,5 +112,5 @@
             <button type="submit">Modificar producto</button>
         </div>
     </form>
-</div>
+    </div>
 </main>

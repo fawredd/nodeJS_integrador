@@ -1,8 +1,8 @@
 <div class="comp__cantidad">
-    <input id="input_cantidad" onchange="verificaCantidad(this)" type="number" maxlength="4" step="1" value="<%= cantidad %>">
+    <input id="input_cantidad" name="cartItem_cant" onchange="verificaCantidad(this)" type="number" maxlength="4" step="1" value="<%= cantidad %>">
     <div class="masmenos">
-        <button onclick="sumaCantidad(this)">+</button>
-        <button onclick="restaCantidad(this)">-</button>
+        <button onclick="sumaCantidad(event,this)">+</button>
+        <button onclick="restaCantidad(event,this)">-</button>
     </div>
 </div>
 

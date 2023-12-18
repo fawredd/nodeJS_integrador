@@ -87,8 +87,33 @@
     font-size: 20px;
 }
 
-__fila{
+.__fila{
     display:flex;
     justify-content:flex-start;
     column-gap:18px;
+}
+
+.__tables{
+    border:1px solid red;
+}
+
+.__tables thead tr{
+    background-color: gray;
+}
+.__tables th{
+    padding:4px 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.__tables td{
+    padding:4px 8px;
+    font-size: 14px;
+}
+
+.a__boton{
+    background-color: lightgray;
+    border:1px solid black;
+    border-radius: 3px;
+    padding:6px 8px;
+    margin:4px;
 }

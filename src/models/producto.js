@@ -56,12 +56,12 @@ const Producto = sequelize.define(
     img_front: {
       type: DataTypes.STRING,
       allowNull: true,
-      defaultValue: 'default-1.jpg'
+      defaultValue: '/default-1.jpg'
     },
     img_back: {
       type: DataTypes.STRING,
       allowNull: true,
-      defaultValue: 'default-box.jpg'
+      defaultValue: '/default-box.jpg'
     },
     payment: {
       type: DataTypes.INTEGER,

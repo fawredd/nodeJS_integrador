@@ -1,41 +1,51 @@
-<main>
-  <h1>Registrar</h1>
-
+<main class="container">
+  <div class="admin" style="padding:24px;align-items: center;">
+  <div class="__title">
+    <h1>Registrar</h1>
+    <p>Completa tu formulario para ser parte del mundo de los Funkos</p>
+  </div>
   <% if (typeof errors != 'undefined') { %>
   <ul>
     <% errors.forEach(error => { %>
-    <li><%= error.msg %></li>
+    <li style="color:red; font-weight: bold;"><%= error.msg %></li>
     <% }) %>
   </ul>
   <% } %>
-
-  <form action="/register" method="post">
-    <div>
-      <label for="email">Correo</label>
+  
+  <form 
+    action="/auth/register"
+    method="post"
+    class="__form"
+    style="display:grid; grid-template-columns:repeat(2,auto); column-gap:0; margin-top:20px;"
+  >
+      <label for="email">Correo:</label>
       <input
         type="email"
         id="email"
         name="email"
         value="<%= typeof values != 'undefined' ? values.email : '' %>"
+        required
       />
-    </div>
-    <div>
-      <label for="password">Contraseña</label>
+      <label for="password">Contraseña:</label>
       <input
         type="password"
         id="password"
         name="password"
         autocomplete="off"
+        required
       />
-    </div>
-    <div>
-      <label for="password_confirmation">Confirmar contraseña</label>
+      <label for="password_confirmation">Repite contraseña:</label>
       <input
         type="password"
         id="password_confirmation"
         name="password_confirmation"
+        required
       />
-    </div>
-    <button type="submit">Enviar</button>
+      <button type="submit" style="width: fit-content;">Registrar</button>
+      <div style="display:flex;align-items: center; justify-content:start; column-gap: 12px;width: fit-content;">
+        <input type="checkbox" id="aceptarTC">
+        <label for="aceptarTC" style="font-size:14px;">Acepto términos y condiciones</label>
+      </div>
   </form>
+  </div>
 </main>

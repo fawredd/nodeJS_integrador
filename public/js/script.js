@@ -65,15 +65,14 @@ window.addEventListener('resize', () => {
 })
 
 // CONFIRMA ELIMINACION DE PRODUCTO
-document.getElementById('botonElimina').addEventListener('click', function (event) {
-  event.preventDefault() // Evitar el envío del formulario por defecto
-
+function EliminaItem(e,boton){
+  e.preventDefault() // Evitar el envío del formulario por defecto
   const result = confirm('¿Estás seguro de que deseas continuar?')
-
   if (result) {
     // Continuar con el envío del formulario
-    document.getElementById('formElimina').submit()
+    const formulario = boton.parentNode
+    formulario.submit()
   } else {
     // Cancelar el envío del formulario
   }
-})
+}

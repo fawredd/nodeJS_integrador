@@ -13,25 +13,42 @@
         </div>
     </div>
     <ul class="navbar__menu">
-        <li class="menu__item menu__item__submenu resaltado">
-            <a href="/shop">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
-        </li>
-        <li class="menu__item resaltado">
-            <a href="/contact">CONTACTO</a>
-        </li>
-        <li class="menu__item resaltado">
-            <% if (userId){ %>
-                <a href="/auth/logout">LOGOUT</a>    
+        <% if (userId){ %>
+            <li class="menu__item menu__item__submenu resaltado">
+                <a href="/shop">VER TIENDA</a>
+            </li>
+            <li class="menu__item resaltado">
+                <a href="/admin">ADMIN</a>
+            </li>
+            <li class="menu__item resaltado">
+                <a href="/admin/categorias">CATEGORIAS</a>
+            </li>
+            <li class="menu__item resaltado">
+                <a href="/admin/licencias">LICENCIAS</a>
+            </li>
+
+            <li class="menu__item resaltado">
+                    <a href="/auth/logout">SALIR</a>
+            </li>
+
             <% } else { %>
-                <a href="/auth/login">LOGIN</a>
-            <% } %>
-        </li>
-        <li class="menu__item resaltado">
-            <a class="carrito" href="/shop/cart">
-                <img src="/img/icons/cart-icon.svg" alt="ícono de carrito">
-                <span class="cantidadCarrito" id="itemsEnCarrito"><%=cartCant%></span>
-            </a>
-        </li>
+                <li class="menu__item menu__item__submenu resaltado">
+                    <a href="/shop">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
+                </li>
+                <li class="menu__item resaltado">
+                    <a href="/contact">CONTACTO</a>
+                </li>
+                <li class="menu__item resaltado">
+                        <a href="/auth/login">LOGIN</a>
+                </li>
+                <li class="menu__item resaltado">
+                    <a class="carrito" href="/shop/cart">
+                        <img src="/img/icons/cart-icon.svg" alt="ícono de carrito">
+                        <span class="cantidadCarrito" id="itemsEnCarrito"><%=cartCant%></span>
+                    </a>
+                </li>
+        <% } %>
+        
     </ul>
 </nav>
 </header>

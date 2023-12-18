@@ -1,19 +1,21 @@
-<main id="app">
-    <div class="container admin">
-        <h1>CREAR NUEVO ITEM</h1>
-        <% if (typeof errors != 'undefined') { %>
-            <ul>
-                <% errors.forEach(error => { %>
-                <li><%= error.msg %></li>
-                <% }) %>
-            </ul>
-        <% 
-        } 
-        console.log("------ create.ejs -------------")
-        %>
-        <form action="/admin/create" method="post" enctype="multipart/form-data">
+<main id="app" class="container">
+    <div class="admin" style="padding: 24px 36px;">
+        <div class="admin__encabezado">
+            <h1>CREAR NUEVO ITEM</h1>
+        </div>
+            <% if (typeof errors != 'undefined') { %>
+                <ul>
+                    <% errors.forEach(error => { %>
+                    <li  style="color:red; font-weight: bold;"><%= error.msg %></li>
+                    <% }) %>
+                </ul>
+            <% 
+            } 
+            console.log("------ create.ejs -------------")
+            %>
+        <form action="/admin/create" method="post" enctype="multipart/form-data" class="create__form">
             <div class="create__fila">
-                <label for="CategoryId">Categoria</label>
+                <label for="CategoryId">Categoria:</label>
                 <select name="CategoryId" id="CategoryId" class="">
                     <option value=""></option>
                     <% categorias.forEach(categoria => { %>
@@ -28,7 +30,7 @@
                         </option>
                         <% }) %>
                 </select>
-                <label for="LicenceId">Licencia</label>
+                <label for="LicenceId">Licencia:</label>
                 <select name="LicenceId" id="LicenceId" class="">
                     <option value=""></option>
                     <% licencias.forEach(licencia => { %>
@@ -44,31 +46,41 @@
                     <% }) %>
                 </select>
             </div>
-            <label for="iNombre">Nombre del producto</label>
-            <input type="text" id="iNombre" name="product_name" value="<%= typeof values != 'undefined' ? values.product_name : '' %>">
+            <div class="create__fila">
+                <label for="iNombre">Nombre del producto:</label>
+                <input type="text" id="iNombre" name="product_name" value="<%= typeof values != 'undefined' ? values.product_name : '' %>">
+            </div>
             <textarea name="product_description" id="iDescripcion" cols="30" rows="10" placeholder="Descripción del producto"><%= typeof values != 'undefined' ? values.product_description : '' %></textarea>
             <div class="create__fila">
-                <label for="iSKU">SKU</label>
-                <input type="text" id="iSKU" name="product_sku" value="<%= typeof values != 'undefined' ? values.product_sku : '' %>">
-                <label for="iPrecio">Precio</label>
-                <input type="number" id="iPrecio" name="product_price" value="<%= typeof values != 'undefined' ? values.product_price : '0.00' %>" required min="1">
-                <label for="iStock">Stock</label>
-                <input type="number" id="iStock" name="product_stock" value="<%= typeof values != 'undefined' ? values.product_stock : '1' %>" required min="1">
+                <label for="iSKU">SKU:</label>
+                <div class="input_container">
+                    <input type="text" id="iSKU" name="product_sku" value="<%= typeof values != 'undefined' ? values.product_sku : '' %>" maxlength="10">
+                </div>
+                <label for="iPrecio">Precio:</label>
+                <div class="input_container">
+                    <input type="number" id="iPrecio" name="product_price" value="<%= typeof values != 'undefined' ? values.product_price : '0.00' %>" required min="1" maxlength="6">
+                </div>
+                <label for="iStock">Stock:</label>
+                <div class="input_container">
+                    <input type="number" id="iStock" name="product_stock" value="<%= typeof values != 'undefined' ? values.product_stock : '1' %>" required min="1" maxlength="3">
+                </div>
             </div>
             <div class="create__fila">
-                <label for="iDescuento">Descuento</label>
+                <label for="iDescuento">Descuento:</label>
                 <input type="number" id="descuento" name="iDescuento" placeholder="0%" value="0">
-                <label for="iCuotas">Cuotas</label>
+                <label for="iCuotas">Cuotas:</label>
                 <select name="dues" id="iCuotas" class="">
                     <option value="1" selected>1 cuota</option>
                     <option value="2">2 cuotas</option>
                     <option value="3">3 cuotas</option>
                 </select>
             </div>
-            <label for="img_front">Imagen front</label>
-            <input type="file" name="img_front" id="img_front" accept="image/*">
-            <!-- <label for="img_front">Imagen back</label>
-            <input type="file" name="img_back" id="img_back" accept="image/*"> -->
+            <div class="create__fila">
+                <label for="img_front">Imagen front:</label>
+                <input type="file" name="img_front" id="img_front" accept="image/*">
+                <!-- <label for="img_front">Imagen back</label>
+                <input type="file" name="img_back" id="img_back" accept="image/*"> -->
+            </div>
             
             <div class="create__fila">
                 <button type="submit">Agregar producto</button>
@@ -76,5 +88,4 @@
             </div>
         </form>
     </div>
-
 </main>

@@ -1,17 +1,8 @@
-#create {
-    margin: var(--espacio-68) auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: var(--espacio-36);
+.__title h1 {
+    font-size: var(--fuente-size-46);
 }
 
-.create__title {
-    font-size: var(--font-size-46);
-}
-
-.create__form {
+.__form {
     max-width: 70%;
     display: flex;
     flex-direction: column;
@@ -20,25 +11,25 @@
     gap: var(--espacio-48);
 }
 
-.create__form * {
+.__form * {
     border-radius: 4px;
 }
 
-.create__form .create__fila{
+.__form .__fila{
     display:flex;
     justify-content:flex-start;
     column-gap:18px;
 }
-.create__form label{
+.__form label{
     font:var(--fuente-principal);
     font-size: var(--fuente-size-24);
     font-weight: 300;
     white-space: nowrap;
 }    
-.create__form .input_container{
+.__form .input_container{
     flex:1 1 auto;
 }
-.create__form input{
+.__form input{
     width:100%;
     box-sizing:border-box;
     font:var(--fuente-principal);
@@ -49,7 +40,7 @@
     padding-left:8px;
 }
 
-.create__form select{
+.__form select{
     width:100%;
     box-sizing:border-box;
     font:var(--fuente-principal);
@@ -58,7 +49,7 @@
     padding-left:8px;
 }
 
-.create__form button {
+.__form button {
     background-color: red;
     font-size: var(--fuente-size-14);
     font-weight: 600;
@@ -67,18 +58,18 @@
     width: 100%;
 }
 
-.create__form textarea{
+.__form textarea{
     font-size: var(--fuente-size-18);
     font-weight: 400;
     padding:8px;
 }
 
-.create__form img{
+.__form img{
     max-width: 150px;
     border-bottom: 1px solid red;
 }
 
-.create__form .create__imagen{
+.__form .__imagen{
     display:flex;
     flex-direction: column;
     justify-content: center;

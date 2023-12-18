@@ -82,11 +82,12 @@ const adminControllers = {
     //Guardo el nuevo producto
     try {
       const producto = await ProductoModel.create(req.body)
+      console.log(producto)
       if (req.file){
         console.log("file: " + req.file.originalname)
         console.log("path: " + path.resolve(
           __dirname,
-          `../../public/img/${req.file.originalname}-1.jpg`
+          `../../public/img/${producto.product_id}-1.jpg`
           ))
         sharp(req.file.buffer)
           .resize(300)
@@ -97,6 +98,7 @@ const adminControllers = {
             )
           );
       }
+      console.log("--------------------------------")
       res.redirect('/admin/')
     } catch (error) {
       console.log(error)

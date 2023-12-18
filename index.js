@@ -107,7 +107,7 @@ const PORT = 3000
 app.listen(PORT, async () => {
   try {
     await sequelize.sync({
-      alter: false,
+      alter: yes,
       logging: false
     })
   } catch (error) {
